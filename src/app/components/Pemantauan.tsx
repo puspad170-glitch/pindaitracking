@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import MaterialIcon from './MaterialIcon';
 
 export default function Pemantauan() {
   return (
@@ -7,9 +8,10 @@ export default function Pemantauan() {
       <div className="rounded-2xl bg-white p-4 shadow-xs border border-gray-100 space-y-3 transition-all group-hover:shadow-md">
         <div className="flex items-center justify-between">
           <h3 className="font-lexend text-sm font-bold text-teal-900">PEMANTAUAN ARMADA</h3>
-          <span className="material-symbols-outlined text-sm text-gray-400 group-hover:text-blue-600 transition-colors">
-            arrow_forward_ios
-          </span>
+          <MaterialIcon
+            name="arrow_forward_ios"
+            className="text-sm text-gray-400 group-hover:text-blue-600 transition-colors"
+          />
         </div>
 
       

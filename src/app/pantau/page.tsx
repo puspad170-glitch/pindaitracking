@@ -1,22 +1,115 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
+import MaterialIcon from '../components/MaterialIcon';
 import Trackingheader from './Trackingheader';
 import Petaarmada from './Petaarmada';
 import Informasikendaraan from './Informasikendaraan';
 import Telemetrikendaraan from './Telemetrikendaraan';
+import Filterreplay from './Filterreplay';
 import Aksiarmada from './Aksiarmada';
+import LokasiTujuanCard from './LokasiTujuanCard';
+import DaftarArmadaAccordion from './DaftarArmadaAccordion';
+import BottomSheet from './BottomSheet';
+import { VehicleData, sampleVehicles } from './data/vehicles';
 
 export default function PantauPage() {
-  return (
-    <div className="bg-gray-50 min-h-screen pb-24 max-w-sm mx-auto space-y-4">
-    
-      <Trackingheader />
+  const [selectedVehicle, setSelectedVehicle] = useState<VehicleData | null>(null);
+  const [activeTab, setActiveTab] = useState<'tracking' | 'replay'>('tracking');
+  const [isSheetExpanded, setIsSheetExpanded] = useState(false);
 
-     
-      <div className="px-4 space-y-4">
-        <Petaarmada />
-        <Informasikendaraan />
-        <Telemetrikendaraan />
-        <Aksiarmada />
+  const handleSelectVehicle = (vehicle: VehicleData) => {
+    setSelectedVehicle(vehicle);
+    setIsSheetExpanded(true);
+  };
+
+  const handleBackToList = () => {
+    setSelectedVehicle(null);
+    setIsSheetExpanded(true);
+  };
+
+  return (
+    <div className="flex justify-center min-h-screen bg-slate-900 antialiased font-sans">
+      <div className="relative w-full max-w-md min-h-screen overflow-hidden bg-slate-100">
+        {/* Fullscreen Map Background */}
+        <Petaarmada mapQuery={selectedVehicle?.mapQuery ?? '-6.5971,106.7949'} />
+
+        {/* Floating Header on Map */}
+        <Trackingheader
+          selectedVehicle={selectedVehicle}
+          onShowList={selectedVehicle ? handleBackToList : undefined}
+        />
+
+        {/* Swipeable Bottom Sheet */}
+        <BottomSheet
+          isExpanded={isSheetExpanded}
+          onExpandedChange={setIsSheetExpanded}
+          peekContent={
+            selectedVehicle ? (
+              <Informasikendaraan
+                vehicle={selectedVehicle}
+                onBackToList={handleBackToList}
+                showSwitchButton={true}
+              />
+            ) : (
+              <div
+                onClick={() => setIsSheetExpanded(true)}
+                className="bg-white rounded-2xl p-3.5 shadow-sm border border-gray-100 flex items-center justify-between cursor-pointer hover:border-blue-200 transition-colors"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-11 bg-blue-600 rounded-xl flex items-center justify-center text-white shadow-xs">
+                    <MaterialIcon name="local_shipping" fill={true} className="text-2xl" />
+                  </div>
+                  <div>
+                    <h3 className="font-extrabold text-gray-900 text-sm">
+                      Daftar Armada ({sampleVehicles.length})
+                    </h3>
+                    <p className="text-[10px] text-gray-500">
+                      Pilih armada untuk melihat telemetri & rute
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )
+          }
+        >
+          {selectedVehicle ? (
+            /* Vehicle Detail View */
+            <div className="space-y-3">
+              {/* Back to List Button */}
+              <button
+                type="button"
+                onClick={handleBackToList}
+                className="w-full flex items-center justify-center gap-1.5 py-2 px-3 bg-white hover:bg-slate-100 text-gray-700 font-bold text-xs rounded-xl border border-gray-200 shadow-2xs transition-colors"
+              >
+                <MaterialIcon name="arrow_back" className="text-sm" />
+                Kembali ke Daftar Armada
+              </button>
+
+              {/* Destination Card */}
+              <LokasiTujuanCard destination={selectedVehicle.destination} />
+
+              {/* Dynamic Telemetry or Replay Filter */}
+              {activeTab === 'tracking' ? (
+                <Telemetrikendaraan vehicle={selectedVehicle} />
+              ) : (
+                <Filterreplay />
+              )}
+
+              {/* Fleet Actions */}
+              <Aksiarmada
+                vehicle={selectedVehicle}
+                activeTab={activeTab}
+                setActiveTab={setActiveTab}
+              />
+            </div>
+          ) : (
+            /* Grouped Accordion Vehicle List */
+            <DaftarArmadaAccordion
+              onSelectVehicle={handleSelectVehicle}
+            />
+          )}
+        </BottomSheet>
       </div>
     </div>
   );

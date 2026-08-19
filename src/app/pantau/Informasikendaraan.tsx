@@ -1,41 +1,90 @@
 import React from 'react';
+import MaterialIcon from '../components/MaterialIcon';
+import { VehicleData, sampleVehicles } from './data/vehicles';
 
-export default function InformasiKendaraan() {
+interface InformasiKendaraanProps {
+  vehicle?: VehicleData;
+  onBackToList?: () => void;
+  showSwitchButton?: boolean;
+}
+
+export default function InformasiKendaraan({
+  vehicle = sampleVehicles[0],
+  onBackToList,
+  showSwitchButton = false,
+}: InformasiKendaraanProps) {
+  const isOnline = vehicle.status === 'online';
+  const isPerjalanan = vehicle.status === 'perjalanan';
+
   return (
-    <div className="bg-white rounded-3xl p-4 shadow-sm border border-gray-100">
-      <h2 className="font-bold text-gray-800 text-sm tracking-wide mb-3">Informasi Kendaraan</h2>
-      
+    <div className="bg-white rounded-2xl p-3.5 shadow-sm border border-gray-100 transition-all">
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-3">
-         
-          <div className="w-16 h-14 bg-emerald-700 rounded-xl overflow-hidden flex items-center justify-center shadow-sm text-white">
-            
-            <span className="material-symbols-outlined text-3xl">
-              local_shipping
-            </span>
+        <div className="flex items-center gap-3 min-w-0">
+          {/* Vehicle Icon Badge */}
+          <div
+            className={`w-14 h-12 rounded-xl overflow-hidden flex items-center justify-center shadow-xs text-white shrink-0 ${isOnline
+                ? 'bg-emerald-700'
+                : isPerjalanan
+                  ? 'bg-amber-600'
+                  : 'bg-slate-500'
+              }`}
+          >
+            <MaterialIcon name="local_shipping" fill={true} className="text-2xl" />
           </div>
-          <div>
-            <h3 className="font-extrabold text-gray-900 text-base">GPS F52618</h3>
-            <div className="grid grid-cols-3 gap-3 mt-1 text-[11px]">
+
+          {/* Details */}
+          <div className="min-w-0">
+            <div className="flex items-center gap-1.5">
+              <h3 className="font-extrabold text-gray-900 text-sm truncate">{vehicle.id}</h3>
+              <span className="text-[10px] text-gray-400 font-medium truncate">
+                • {vehicle.plate}
+              </span>
+            </div>
+
+            <div className="grid grid-cols-3 gap-3 mt-1 text-[10px]">
               <div>
                 <span className="text-gray-400 block">Pengemudi</span>
-                <span className="font-bold text-gray-800">Budi</span>
+                <span className="font-bold text-gray-800 truncate block">{vehicle.driver}</span>
               </div>
               <div>
                 <span className="text-gray-400 block">Status</span>
-                <span className="font-bold text-emerald-500">Online</span>
+                <span
+                  className={`font-bold block truncate ${isOnline
+                      ? 'text-emerald-600'
+                      : isPerjalanan
+                        ? 'text-amber-600'
+                        : 'text-rose-500'
+                    }`}
+                >
+                  {vehicle.statusLabel}
+                </span>
               </div>
               <div>
                 <span className="text-gray-400 block">Mesin</span>
-                <span className="font-bold text-emerald-500">ON</span>
+                <span
+                  className={`font-bold block truncate ${vehicle.engineStatus === 'ON' ? 'text-emerald-600' : 'text-slate-400'
+                    }`}
+                >
+                  {vehicle.engineStatus}
+                </span>
               </div>
             </div>
           </div>
         </div>
 
-        <span className="bg-emerald-100 text-emerald-600 text-[10px] font-bold px-2.5 py-1 rounded-full self-start">
-          Online
-        </span>
+        {/* Right Badge / Switch Action */}
+        <div className="flex flex-col items-end gap-1.5 shrink-0 pl-2">
+          <span
+            className={`text-[9px] font-bold px-2 py-0.5 rounded-full ${isOnline
+                ? 'bg-emerald-100 text-emerald-700'
+                : isPerjalanan
+                  ? 'bg-amber-100 text-amber-700'
+                  : 'bg-rose-100 text-rose-700'
+              }`}
+          >
+            {vehicle.statusLabel}
+          </span>
+        </div>
       </div>
     </div>
   );

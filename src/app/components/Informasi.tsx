@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ChevronRight, Megaphone, FileBarChart, Leaf } from 'lucide-react';
+import MaterialIcon from './MaterialIcon';
 
 export default function Informasi() {
   const [activeTab, setActiveTab] = useState('Semua');
@@ -12,7 +12,7 @@ export default function Informasi() {
       <div className="flex items-center justify-between">
         <h3 className="font-lexend text-sm font-bold text-teal-900">INFORMASI & PENGUMUMAN</h3>
         <a href="#" className="text-[11px] font-medium text-sky-500 hover:underline flex items-center gap-0.5">
-          Lihat semua <ChevronRight className="w-3.5 h-3.5" />
+          Lihat semua <MaterialIcon name="chevron_right" className="text-sm" />
         </a>
       </div>
 
@@ -40,7 +40,7 @@ export default function Informasi() {
       
         <div className="flex items-start gap-3 rounded-xl border border-gray-100 p-2.5 hover:bg-gray-50 transition-colors">
           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-sky-50 text-sky-600">
-            <Megaphone className="w-5 h-5" />
+            <MaterialIcon name="campaign" fill={true} className="text-xl" />
           </div>
           <div className="flex-1 min-w-0">
             <h4 className="text-xs font-bold text-teal-900 truncate">Jadwal Pengangkutan Libur Nasional</h4>
@@ -52,7 +52,7 @@ export default function Informasi() {
         
         <div className="flex items-start gap-3 rounded-xl border border-gray-100 p-2.5 hover:bg-gray-50 transition-colors">
           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-emerald-50 text-emerald-600">
-            <FileBarChart className="w-5 h-5" />
+            <MaterialIcon name="bar_chart" fill={true} className="text-xl" />
           </div>
           <div className="flex-1 min-w-0">
             <h4 className="text-xs font-bold text-teal-900 truncate">Evaluasi Armada Bulanan</h4>
@@ -64,7 +64,7 @@ export default function Informasi() {
         
         <div className="flex items-start gap-3 rounded-xl border border-gray-100 p-2.5 hover:bg-gray-50 transition-colors">
           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-amber-50 text-amber-600">
-            <Leaf className="w-5 h-5" />
+            <MaterialIcon name="eco" fill={true} className="text-xl" />
           </div>
           <div className="flex-1 min-w-0">
             <h4 className="text-xs font-bold text-teal-900 truncate">Program Bogor Bersih 2024</h4>

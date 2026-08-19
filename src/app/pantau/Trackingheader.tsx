@@ -1,48 +1,59 @@
+'use client';
+
 import React from 'react';
+import Link from 'next/link';
+import MaterialIcon from '../components/MaterialIcon';
+import { VehicleData } from './data/vehicles';
 
-export default function Trackingheader() {
+interface TrackingHeaderProps {
+  selectedVehicle?: VehicleData | null;
+  onShowList?: () => void;
+}
+
+export default function Trackingheader({
+  selectedVehicle,
+  onShowList,
+}: TrackingHeaderProps) {
   return (
-    <div className="bg-blue-600 p-6 rounded-b-3xl text-white space-y-4">
-     
-      <div className="flex items-center gap-3">
-        <button className="flex items-center justify-center hover:opacity-80">
-          
-          <span className="material-symbols-outlined text-2xl">
-            arrow_back
-          </span>
-        </button>
-        <h1 className="text-xl font-bold tracking-wide">Tracking Armada</h1>
-      </div>
+    <header className="absolute top-0 left-0 right-0 z-20 p-4 flex items-center justify-between pointer-events-none">
+      {/* Back Button & Title */}
+      <div className="flex items-center gap-2.5 pointer-events-auto">
+        <Link
+          href="/"
+          className="flex h-10 w-10 items-center justify-center rounded-full bg-white/90 backdrop-blur-md text-gray-800 shadow-md shadow-black/10 hover:bg-white transition-all active:scale-95 border border-white/60"
+        >
+          <MaterialIcon name="arrow_back" className="text-xl" />
+        </Link>
 
-    
-      <div className="bg-white text-gray-800 p-4 rounded-2xl flex items-center justify-between shadow-md">
-        <div className="flex items-center gap-3">
-         
-          <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center shrink-0">
-            
-            <span className="material-symbols-outlined text-2xl">
-              location_on
-            </span>
+        <div className="bg-white/90 backdrop-blur-md px-3.5 py-2 rounded-2xl shadow-md shadow-black/10 border border-white/60">
+          <div className="flex items-center gap-1.5">
+            {/* <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span> */}
+            <h1 className="text-sm font-bold text-gray-900 tracking-tight">
+              {selectedVehicle ? selectedVehicle.id : 'Pemantauan Armada'}
+            </h1>
           </div>
-
-          <div>
-            <span className="text-[10px] font-bold text-gray-400 tracking-wider block uppercase">
-              Lokasi Tujuan
-            </span>
-            <h2 className="font-extrabold text-base text-gray-900 leading-tight">
-              TPS Sukasari
-            </h2>
-            <p className="text-xs text-gray-400 mt-0.5">
-              Jl. Raya Bogor No.45, Bogor, Jawa Barat
-            </p>
-          </div>
+          <p className="text-[9px] font-medium text-gray-500 mt-0.2">
+            {selectedVehicle
+              ? `${selectedVehicle.driver} • ${selectedVehicle.speed} ${selectedVehicle.speedUnit}`
+              : '6 Armada Terhubung'}
+          </p>
         </div>
-
-        
-        <button className="bg-cyan-400 hover:bg-cyan-500 text-white text-xs font-bold px-4 py-2 rounded-xl transition-colors">
-          Edit
-        </button>
       </div>
-    </div>
+
+      {/* Right Quick Switch Button */}
+      {selectedVehicle && onShowList && (
+        <button
+          type="button"
+          onClick={onShowList}
+          className="pointer-events-auto flex items-center gap-1 bg-white/90 backdrop-blur-md px-3 py-2 rounded-2xl shadow-md shadow-black/10 border border-white/60 text-xs font-bold text-blue-600 hover:bg-white transition-all active:scale-95"
+        >
+          <MaterialIcon name="list" className="text-base" />
+          <span className="text-[10px]">Daftar</span>
+        </button>
+      )}
+    </header>
   );
 }
