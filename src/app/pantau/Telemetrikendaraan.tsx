@@ -1,30 +1,62 @@
 import React from 'react';
-import { Gauge, Clock, Fuel, Navigation2, Maximize2, Battery } from 'lucide-react';
 
-export default function TelemetiKendaraan() {
-  const metrics = [
-    { label: 'Current Speed', value: '35 km/jam', icon: Gauge, color: 'text-blue-500', bg: 'bg-blue-50' },
-    { label: 'Engine Hours', value: '34.6 jam', icon: Clock, color: 'text-amber-500', bg: 'bg-amber-50' },
-    { label: 'Fuel Level', value: '52 Liter', icon: Fuel, color: 'text-orange-500', bg: 'bg-orange-50' },
-    { label: 'Trip Distance', value: '49.7 km', icon: Navigation2, color: 'text-emerald-500', bg: 'bg-emerald-50' },
-    { label: 'Total Distance', value: '580 km', icon: Maximize2, color: 'text-emerald-500', bg: 'bg-emerald-50' },
-    { label: 'GPS Battery', value: '95%', icon: Battery, color: 'text-purple-500', bg: 'bg-purple-50', isFill: true },
-  ];
-
+export default function Telemetrikendaraan() {
   return (
     <div className="grid grid-cols-3 gap-2.5">
-      {metrics.map((item, idx) => {
-        const Icon = item.icon;
-        return (
-          <div key={idx} className="bg-white rounded-2xl p-3 border border-gray-100 shadow-sm flex flex-col items-center text-center">
-            <div className={`w-8 h-8 rounded-full ${item.bg} flex items-center justify-center mb-1`}>
-              <Icon className={`w-5 h-5 ${item.color} ${item.isFill ? 'fill-purple-500' : ''}`} />
-            </div>
-            <span className="text-[10px] text-gray-400 font-medium">{item.label}</span>
-            <span className="text-xs font-extrabold text-gray-800 mt-0.5">{item.value}</span>
-          </div>
-        );
-      })}
+     
+      <div className="bg-white p-2.5 rounded-2xl flex flex-col items-center justify-center text-center shadow-sm border border-gray-100 aspect-square">
+        <div className="w-9 h-9 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mb-1 flex-shrink-0">
+          <span className="material-symbols-outlined text-lg">speed</span>
+        </div>
+        <span className="text-gray-400 text-[10px] font-medium leading-none mb-1 block">Current Speed</span>
+        <span className="font-extrabold text-gray-900 text-[11px] leading-tight">
+          35 <span className="text-[9px] font-semibold text-gray-600">km/jam</span>
+        </span>
+      </div>
+
+      
+      <div className="bg-white p-2.5 rounded-2xl flex flex-col items-center justify-center text-center shadow-sm border border-gray-100 aspect-square">
+        <div className="w-9 h-9 bg-orange-50 text-orange-500 rounded-full flex items-center justify-center mb-1 flex-shrink-0">
+          <span className="material-symbols-outlined text-lg">update</span>
+        </div>
+        <span className="text-gray-400 text-[10px] font-medium leading-none mb-1 block">Engine Hours</span>
+        <span className="font-extrabold text-gray-900 text-[11px] leading-tight">34.6 jam</span>
+      </div>
+
+     
+      <div className="bg-white p-2.5 rounded-2xl flex flex-col items-center justify-center text-center shadow-sm border border-gray-100 aspect-square">
+        <div className="w-9 h-9 bg-orange-50 text-orange-500 rounded-full flex items-center justify-center mb-1 flex-shrink-0">
+          <span className="material-symbols-outlined text-lg">gas_meter</span>
+        </div>
+        <span className="text-gray-400 text-[10px] font-medium leading-none mb-1 block">Fuel Level</span>
+        <span className="font-extrabold text-gray-900 text-[11px] leading-tight">52 Liter</span>
+      </div>
+
+      <div className="bg-white p-2.5 rounded-2xl flex flex-col items-center justify-center text-center shadow-sm border border-gray-100 aspect-square">
+        <div className="w-9 h-9 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mb-1 flex-shrink-0">
+          <span className="material-symbols-outlined text-lg">turn_slight_right</span>
+        </div>
+        <span className="text-gray-400 text-[10px] font-medium leading-none mb-1 block">Trip Distance</span>
+        <span className="font-extrabold text-gray-900 text-[11px] leading-tight">49.7 km</span>
+      </div>
+
+      
+      <div className="bg-white p-2.5 rounded-2xl flex flex-col items-center justify-center text-center shadow-sm border border-gray-100 aspect-square">
+        <div className="w-9 h-9 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mb-1 flex-shrink-0">
+          <span className="material-symbols-outlined text-lg">multiple_stop</span>
+        </div>
+        <span className="text-gray-400 text-[10px] font-medium leading-none mb-1 block">Total Distance</span>
+        <span className="font-extrabold text-gray-900 text-[11px] leading-tight">580 km</span>
+      </div>
+
+     
+      <div className="bg-white p-2.5 rounded-2xl flex flex-col items-center justify-center text-center shadow-sm border border-gray-100 aspect-square">
+        <div className="w-9 h-9 bg-purple-50 text-purple-600 rounded-full flex items-center justify-center mb-1 flex-shrink-0">
+          <span className="material-symbols-outlined text-lg">battery_std</span>
+        </div>
+        <span className="text-gray-400 text-[10px] font-medium leading-none mb-1 block">GPS Battery</span>
+        <span className="font-extrabold text-gray-900 text-[11px] leading-tight">95%</span>
+      </div>
     </div>
   );
 }

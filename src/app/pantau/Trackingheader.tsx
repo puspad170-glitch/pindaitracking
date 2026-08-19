@@ -1,38 +1,45 @@
 import React from 'react';
-import { ArrowLeft, MapPin } from 'lucide-react';
 
-interface TrackingHeaderProps {
-  onBack?: () => void;
-}
-
-export default function TrackingHeader({ onBack }: TrackingHeaderProps) {
+export default function Trackingheader() {
   return (
-    <div className="bg-linear-to-r from-sky-500 to-blue-600 text-white p-5 pt-7 pb-10 rounded-b-4x1 relative z-10 shadow-md">
+    <div className="bg-blue-600 p-6 rounded-b-3xl text-white space-y-4">
+     
       <div className="flex items-center gap-3">
-        <button 
-          onClick={onBack}
-          className="p-1 rounded-full hover:bg-white/20 transition-colors"
-        >
-          <ArrowLeft className="w-6 h-6 text-white" />
+        <button className="flex items-center justify-center hover:opacity-80">
+          
+          <span className="material-symbols-outlined text-2xl">
+            arrow_back
+          </span>
         </button>
-        <h1 className="text-xl font-extrabold tracking-wide">Tracking Armada</h1>
+        <h1 className="text-xl font-bold tracking-wide">Tracking Armada</h1>
       </div>
 
-   
-      <div className="mt-4 bg-white text-gray-800 rounded-2xl p-4 shadow-lg border border-gray-100 flex items-center justify-between">
-        <div className="flex items-start gap-3">
-          <div className="bg-blue-50 p-2 rounded-xl mt-0.5">
-            <MapPin className="w-5 h-5 text-blue-600 fill-blue-600" />
+    
+      <div className="bg-white text-gray-800 p-4 rounded-2xl flex items-center justify-between shadow-md">
+        <div className="flex items-center gap-3">
+         
+          <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center flex-shrink-0">
+            
+            <span className="material-symbols-outlined text-2xl">
+              location_on
+            </span>
           </div>
+
           <div>
-            <span className="text-[11px] font-bold text-gray-500 tracking-wider uppercase block">Lokasi Tujuan</span>
-            <h3 className="font-extrabold text-sm text-gray-900 leading-tight">TPS Sukasari</h3>
-            <p className="text-[10px] text-gray-400 mt-0.5 leading-tight">
-              Jl. Raya Bogor No.45, <br /> Bogor, Jawa Barat
+            <span className="text-[10px] font-bold text-gray-400 tracking-wider block uppercase">
+              Lokasi Tujuan
+            </span>
+            <h2 className="font-extrabold text-base text-gray-900 leading-tight">
+              TPS Sukasari
+            </h2>
+            <p className="text-xs text-gray-400 mt-0.5">
+              Jl. Raya Bogor No.45, Bogor, Jawa Barat
             </p>
           </div>
         </div>
-        <button className="bg-sky-400 hover:bg-sky-500 text-white text-xs font-semibold px-4 py-1.5 rounded-full shadow-sm transition">
+
+        
+        <button className="bg-cyan-400 hover:bg-cyan-500 text-white text-xs font-bold px-4 py-2 rounded-xl transition-colors">
           Edit
         </button>
       </div>

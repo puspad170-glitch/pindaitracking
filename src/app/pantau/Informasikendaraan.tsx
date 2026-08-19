@@ -7,8 +7,12 @@ export default function InformasiKendaraan() {
       
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-16 h-14 bg-emerald-700 rounded-xl overflow-hidden flex items-center justify-center shadow-sm">
-            <span className="text-3xl">🚛</span>
+         
+          <div className="w-16 h-14 bg-emerald-700 rounded-xl overflow-hidden flex items-center justify-center shadow-sm text-white">
+            
+            <span className="material-symbols-outlined text-3xl">
+              local_shipping
+            </span>
           </div>
           <div>
             <h3 className="font-extrabold text-gray-900 text-base">GPS F52618</h3>

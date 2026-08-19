@@ -1,4 +1,3 @@
-
 'use client'
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -11,6 +10,7 @@ export default function AksiArmada() {
     <div className="space-y-3">
      
       <div className="flex gap-3">
+        
         <button
           onClick={() => setActiveTab('tracking')}
           className={`flex-1 py-3 px-4 rounded-2xl font-bold text-xs flex items-center justify-center gap-2 transition-all shadow-sm ${
@@ -23,7 +23,9 @@ export default function AksiArmada() {
           Tracking
         </button>
 
-        <button
+        
+        <Link
+          href="/replay"
           onClick={() => setActiveTab('replay')}
           className={`flex-1 py-3 px-4 rounded-2xl font-bold text-xs flex items-center justify-center gap-2 transition-all shadow-sm ${
             activeTab === 'replay'
@@ -33,10 +35,10 @@ export default function AksiArmada() {
         >
           <Play className="w-4 h-4 fill-current" />
           Replay
-        </button>
+        </Link>
       </div>
 
-     
+    
       <div className="grid grid-cols-3 gap-2.5">
         <button className="bg-sky-50 hover:bg-sky-100 text-sky-600 rounded-2xl p-3 flex flex-col items-center justify-center text-center transition">
           <Phone className="w-5 h-5 mb-1" />
@@ -54,14 +56,14 @@ export default function AksiArmada() {
         </button>
       </div>
 
-    
+      
       <Link
-  href="/replay"
-  className="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-3.5 px-6 rounded-2xl flex items-center justify-center gap-2 text-xs shadow-md transition"
->
-  Lihat Detail Kendaraan
-  <ChevronRight className="w-4 h-4" />
-</Link>
-</div>
+        href="/detail-kendaraan"
+        className="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-3.5 px-6 rounded-2xl flex items-center justify-center gap-2 text-xs shadow-md transition"
+      >
+        Lihat Detail Kendaraan
+        <ChevronRight className="w-4 h-4" />
+      </Link>
+    </div>
   );
 }

@@ -1,35 +1,51 @@
 import React from 'react';
-import { Home, Truck, Map, Clock, User } from 'lucide-react';
+import { Home, Truck, Map, History, User } from 'lucide-react';
 
-export default function BottomNavbar() {
+export default function Bottomnavbar() {
   return (
-    <div className="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-white border-t border-gray-100 px-6 py-2 flex justify-between items-center z-50 rounded-t-2xl shadow-lg">
-      <button className="flex flex-col items-center gap-1 text-sky-500">
-        <Home className="w-5 h-5" />
-        <span className="text-[10px] font-bold">Beranda</span>
-      </button>
+    <nav
+      id="bottom-nav"
+      className="absolute inset-x-0 bottom-0 z-50 border-t border-gray-100 bg-white"
+      style={{
+        boxShadow: '0 -4px 24px rgba(0,0,0,0.07)',
+        paddingBottom: 'max(0.5rem, env(safe-area-inset-bottom, 0px))',
+      }}
+    >
+      <div className="flex h-16 items-end justify-around px-1">
+       
+        <a href="#" className="flex-1 flex flex-col items-center justify-center gap-0.5 py-2 text-blue-600 transition-colors">
+          <Home className="w-5 h-5" />
+          <span className="text-[10px] font-bold">Beranda</span>
+        </a>
 
-      <button className="flex flex-col items-center gap-1 text-gray-400 hover:text-sky-500">
-        <Truck className="w-5 h-5" />
-        <span className="text-[10px] font-medium">Armada</span>
-      </button>
+       
+        <a href="#" className="flex-1 flex flex-col items-center justify-center gap-0.5 py-2 text-gray-400 hover:text-gray-600 transition-colors">
+          <Truck className="w-5 h-5" />
+          <span className="text-[10px] font-medium">Armada</span>
+        </a>
 
-      <button className="flex flex-col items-center -mt-6">
-        <div className="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center shadow-lg border-4 border-white">
-          <Map className="w-6 h-6" />
+       
+        <div className="relative flex flex-1 flex-col items-end justify-center pb-1">
+          <a
+            href="#"
+            className="absolute -top-7 left-1/2 -translate-x-1/2 flex h-14 w-14 items-center justify-center rounded-full bg-blue-600 text-white shadow-lg shadow-blue-600/40 ring-4 ring-blue-100 transition-all active:scale-95 hover:bg-blue-700"
+          >
+            <Map className="w-6 h-6" />
+          </a>
+          <span className="mt-10 w-full text-center text-[10px] font-bold text-blue-600">Peta</span>
         </div>
-        <span className="text-[10px] font-bold text-blue-500 mt-1">Peta</span>
-      </button>
 
-      <button className="flex flex-col items-center gap-1 text-gray-400 hover:text-sky-500">
-        <Clock className="w-5 h-5" />
-        <span className="text-[10px] font-medium">Riwayat</span>
-      </button>
+      
+        <a href="#" className="flex-1 flex flex-col items-center justify-center gap-0.5 py-2 text-gray-400 hover:text-gray-600 transition-colors">
+          <History className="w-5 h-5" />
+          <span className="text-[10px] font-medium">Riwayat</span>
+        </a>
 
-      <button className="flex flex-col items-center gap-1 text-gray-400 hover:text-sky-500">
-        <User className="w-5 h-5" />
-        <span className="text-[10px] font-medium">Akun</span>
-      </button>
-    </div>
+        <a href="#" className="flex-1 flex flex-col items-center justify-center gap-0.5 py-2 text-gray-400 hover:text-gray-600 transition-colors">
+          <User className="w-5 h-5" />
+          <span className="text-[10px] font-medium">Akun</span>
+        </a>
+      </div>
+    </nav>
   );
 }

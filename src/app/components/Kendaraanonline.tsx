@@ -1,45 +1,48 @@
+import Image from 'next/image';
 import React from 'react';
 import { ChevronRight } from 'lucide-react';
 
-export default function KendaraanOnline() {
+export default function Kendaraanonline() {
   const vehicles = [
-    { id: 'GPS F52672', driver: 'Rusman', speed: '35 km/jam', status: 'Online' },
-    { id: 'GPS F52672', driver: 'Rusman', speed: '35 km/jam', status: 'Online' },
+    { id: 'GPS F52672', driver: 'Rusman', speed: '35 km/jam', img: '/assets/Truk.jpg' },
+    { id: 'GPS F52690', driver: 'Ahmad', speed: '42 km/jam', img: '/assets/Truk.jpg' },
   ];
 
   return (
-    <div className="bg-white rounded-3xl p-5 shadow-sm border border-gray-100">
-      <div className="flex justify-between items-center mb-4">
-        <h2 className="font-bold text-gray-800 text-sm uppercase tracking-wide">Kendaraan Online</h2>
-        <button className="text-xs text-sky-500 font-semibold flex items-center hover:underline">
-          Lihat semua <ChevronRight className="w-4 h-4 ml-0.5" />
-        </button>
+    <div className="rounded-2xl bg-white p-4 shadow-xs border border-gray-100 space-y-3">
+      <div className="flex items-center justify-between">
+        <h3 className="font-lexend text-sm font-bold text-teal-900">KENDARAAN ONLINE</h3>
+        <a href="#" className="text-[11px] font-medium text-sky-500 hover:underline flex items-center gap-0.5">
+          Lihat semua <ChevronRight className="w-3.5 h-3.5" />
+        </a>
       </div>
 
-      <div className="space-y-3">
-        {vehicles.map((v, i) => (
-          <div key={i} className="flex items-center justify-between border-b border-gray-50 pb-3 last:pb-0 last:border-none">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center text-xl">
-                🚚
-              </div>
+      <div className="space-y-2.5">
+        {vehicles.map((item, index) => (
+          <div key={index} className="flex items-center justify-between rounded-xl border border-gray-100 bg-zinc-50 p-3">
+            <div className="flex items-center gap-2.5">
+              <Image
+  src={item.img}
+  alt="Foto Truk"
+  width={36}
+  height={36}
+  className="h-9 w-9 shrink-0 rounded-lg object-cover border border-gray-200"
+/>
               <div>
-                <h3 className="font-bold text-gray-800 text-sm">{v.id}</h3>
-                <p className="text-[11px] text-gray-400">Driver</p>
-                <p className="text-xs font-bold text-gray-700">{v.driver}</p>
+                <div className="flex items-center gap-1.5">
+                  <h4 className="font-bold text-xs text-teal-900">{item.id}</h4>
+                  <span className="rounded bg-emerald-100 px-1.5 py-0.2 text-[8px] font-semibold text-emerald-700">
+                    Online
+                  </span>
+                </div>
+                <p className="text-[10px] text-gray-500">
+                  Driver: <span className="font-bold text-teal-900">{item.driver}</span> • {item.speed}
+                </p>
               </div>
             </div>
-
-            <div className="text-right flex flex-col items-end gap-1">
-              <span className="bg-emerald-100 text-emerald-600 text-[9px] font-bold px-2 py-0.5 rounded-full">
-                {v.status}
-              </span>
-              <p className="text-[10px] text-gray-400">Kecepatan</p>
-              <p className="text-xs font-bold text-gray-700">{v.speed}</p>
-              <button className="bg-amber-400 hover:bg-amber-500 text-white font-bold text-[11px] px-4 py-1 rounded-xl shadow-sm transition">
-                Tracking
-              </button>
-            </div>
+            <button className="rounded-lg bg-amber-400 px-3 py-1.5 text-[10px] font-bold text-cyan-900 hover:bg-amber-500 transition-colors shadow-xs">
+              Tracking
+            </button>
           </div>
         ))}
       </div>

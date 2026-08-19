@@ -1,28 +1,32 @@
+'use client';
+
+import React from 'react';
 import Navbar from './components/Navbar';
-import StatusArmada from './components/Statusarmada';
+import Statistik from './components/Statistik';
+import Statusarmada from './components/Statusarmada';
 import Pengangkutan from './components/Pengangkutan';
 import Pemantauan from './components/Pemantauan';
-import KendaraanOnline from './components/Kendaraanonline';
-import Statistik from './components/Statistik';
+import Kendaraanonline from './components/Kendaraanonline';
 import Informasi from './components/Informasi';
-import BottomNavbar from './components/Bottomnavbar';
+import Bottomnavbar from './components/Bottomnavbar';
 
-export default function Dashboard() {
+export default function DashboardPage() {
   return (
-    <div className="bg-slate-100 min-h-screen flex justify-center">
-      <div className="w-full max-w-md bg-slate-50 min-h-screen pb-24 shadow-2xl relative">
+    <div className="flex justify-center min-h-screen bg-slate-100 antialiased font-sans">
+     
+      <div className="relative w-full max-w-md bg-white min-h-screen shadow-sm pb-24">
         <Navbar />
-        
-        <div className="p-4 space-y-4 -mt-4">
-          <StatusArmada />
+
+        <main className="px-2 space-y-4 pt-2">
+          <Statistik />
+          <Statusarmada />
           <Pengangkutan />
           <Pemantauan />
-          <KendaraanOnline />
-          <Statistik />
+          <Kendaraanonline />
           <Informasi />
-        </div>
+        </main>
 
-        <BottomNavbar />
+        <Bottomnavbar />
       </div>
     </div>
   );

@@ -1,66 +1,41 @@
-'use client';
-import React, { useState } from 'react';
-import { Calendar, Play } from 'lucide-react';
+import React from 'react';
 
-export default function FilterReplay() {
-  const [selectedRange, setSelectedRange] = useState('Hari ini');
-  const [startDate, setStartDate] = useState('07-Aug-2026');
-  const [endDate, setEndDate] = useState('07-Aug-2026');
-
-  const filterOptions = ['Hari ini', 'Kemarin', 'Minggu ini', 'Minggu lalu', 'Bulan ini'];
-
+export default function Filterreplay() {
   return (
-    <div className="bg-white rounded-3xl p-5 shadow-sm border border-gray-100 space-y-4">
-      {/* Jarak Waktu Cepat */}
-      <div>
-        <h4 className="text-xs font-bold text-gray-700 mb-2">Jarak Waktu Cepat</h4>
-        <div className="flex gap-1.5 overflow-x-auto pb-1 scrollbar-none">
-          {filterOptions.map((opt) => (
-            <button
-              key={opt}
-              onClick={() => setSelectedRange(opt)}
-              className={`px-3 py-1.5 rounded-xl text-[10px] font-bold whitespace-nowrap transition-all ${
-                selectedRange === opt
-                  ? 'bg-blue-600 text-white shadow-sm'
-                  : 'bg-white text-sky-600 border border-sky-300 hover:bg-sky-50'
-              }`}
-            >
-              {opt}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      <div>
-        <label className="text-xs font-bold text-gray-700 block mb-1">Dari Tanggal</label>
-        <div className="relative flex items-center">
-          <input
-            type="text"
-            value={startDate}
-            onChange={(e) => setStartDate(e.target.value)}
-            className="w-full bg-white border border-gray-300 rounded-2xl py-3 px-4 text-xs font-bold text-gray-800 focus:outline-none focus:border-sky-500"
-          />
-          <Calendar className="w-5 h-5 text-slate-600 absolute right-4 pointer-events-none" />
-        </div>
-      </div>
-
+    <div className="bg-white p-4 rounded-3xl shadow-sm border border-gray-100 space-y-4">
       
       <div>
-        <label className="text-xs font-bold text-gray-700 block mb-1">Sampai Tanggal</label>
-        <div className="relative flex items-center">
-          <input
-            type="text"
-            value={endDate}
-            onChange={(e) => setEndDate(e.target.value)}
-            className="w-full bg-white border border-gray-300 rounded-2xl py-3 px-4 text-xs font-bold text-gray-800 focus:outline-none focus:border-sky-500"
-          />
-          <Calendar className="w-5 h-5 text-slate-600 absolute right-4 pointer-events-none" />
+        <h4 className="font-bold text-gray-800 text-xs mb-2">Jarak Waktu Cepat</h4>
+        <div className="flex gap-2 overflow-x-auto pb-1 text-xs">
+          <button className="bg-blue-600 text-white px-4 py-1.5 rounded-full font-medium whitespace-nowrap">Hari ini</button>
+          <button className="border border-blue-400 text-blue-600 px-4 py-1.5 rounded-full font-medium whitespace-nowrap">Kemarin</button>
+          <button className="border border-blue-400 text-blue-600 px-4 py-1.5 rounded-full font-medium whitespace-nowrap">Minggu ini</button>
+          <button className="border border-blue-400 text-blue-600 px-4 py-1.5 rounded-full font-medium whitespace-nowrap">Minggu lalu</button>
+          <button className="border border-blue-400 text-blue-600 px-4 py-1.5 rounded-full font-medium whitespace-nowrap">Bulan ini</button>
         </div>
       </div>
 
      
-      <button className="w-full bg-amber-500 hover:bg-amber-600 text-white font-extrabold py-3.5 px-6 rounded-2xl flex items-center justify-center gap-2 text-xs shadow-md transition">
-        <Play className="w-4 h-4 fill-white" />
+      <div>
+        <label className="font-bold text-gray-800 text-xs block mb-1.5">Dari Tanggal</label>
+        <div className="flex items-center justify-between border border-gray-200 rounded-2xl p-3 bg-gray-50/50">
+          <span className="text-sm font-semibold text-gray-800">07-Aug-2026</span>
+          <span className="material-symbols-outlined text-gray-500">calendar_today</span>
+        </div>
+      </div>
+
+    
+      <div>
+        <label className="font-bold text-gray-800 text-xs block mb-1.5">Sampai Tanggal</label>
+        <div className="flex items-center justify-between border border-gray-200 rounded-2xl p-3 bg-gray-50/50">
+          <span className="text-sm font-semibold text-gray-800">07-Aug-2026</span>
+          <span className="material-symbols-outlined text-gray-500">calendar_today</span>
+        </div>
+      </div>
+
+     
+      <button className="w-full bg-orange-500 text-white py-3.5 rounded-2xl font-bold text-sm flex items-center justify-center gap-2 shadow-md shadow-orange-200">
+        <span className="material-symbols-outlined text-xl">play_arrow</span>
         Putar Replay
       </button>
     </div>

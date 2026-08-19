@@ -1,30 +1,25 @@
 import React from 'react';
-import ReplayHeader from './Replayheader';
-import ProfilePengemudi from './Profilepengemudi';
-import FilterReplay from './Filterreplay';
-import BottomNavbar from './Bottomnavbar';
+import Replayheader from './Replayheader';
+import Profilepengemudi from './Profilepengemudi';
+import Filterreplay from './Filterreplay';
+import Bottomnavbar from './Bottomnavbar';
 
-export default function ReplayPerjalanan() {
+export default function ReplayPage() {
   return (
-    <div className="bg-slate-100 min-h-screen flex justify-center">
-      <div className="w-full max-w-md bg-slate-50 min-h-screen pb-24 shadow-2xl relative overflow-hidden flex flex-col">
+    <div className="bg-gray-50 min-h-screen pb-24 max-w-sm mx-auto space-y-4">
+     
+      <Replayheader />
 
-       
-        <ReplayHeader />
-
-        <div className="p-4 space-y-4">
-
-          <ProfilePengemudi />
+      <div className="px-4 space-y-4">
+        
+        <Profilepengemudi />
 
         
-          <FilterReplay />
-
-        </div>
-
-      
-        <BottomNavbar />
-
+        <Filterreplay />
       </div>
+
+     
+      <Bottomnavbar />
     </div>
   );
 }

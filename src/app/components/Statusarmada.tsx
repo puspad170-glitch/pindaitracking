@@ -1,35 +1,56 @@
 import React from 'react';
-import { Truck, Wrench, CheckCircle } from 'lucide-react';
+import { Truck, Wrench, ShieldCheck } from 'lucide-react';
 
-export default function StatusArmada() {
-  const stats = [
-    { label: 'Aktif', count: 18, color: 'text-green-500', bg: 'bg-green-50', icon: Truck },
-    { label: 'Perjalanan', count: 5, color: 'text-yellow-500', bg: 'bg-yellow-50', icon: Truck },
-    { label: 'Maintenance', count: 2, color: 'text-red-500', bg: 'bg-red-50', icon: Wrench },
-    { label: 'Tersedia', count: 20, color: 'text-blue-500', bg: 'bg-blue-50', icon: CheckCircle },
-  ];
-
+export default function Statusarmada() {
   return (
-    <div className="bg-white rounded-3xl p-5 shadow-sm border border-gray-100">
-      <div className="flex justify-between items-center mb-4">
-        <div className="flex items-center gap-2">
-          <Truck className="w-6 h-6 text-blue-600" />
-          <h2 className="font-bold text-gray-800 text-sm tracking-wide">STATUS ARMADA</h2>
+    <div className="relative z-20 -mt-10 mb-4 mx-2 rounded-[24px] bg-white p-4 shadow-lg shadow-black/5 border border-gray-100/80 space-y-3">
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2 text-teal-900">
+          <Truck className="w-5 h-5 text-sky-600" />
+          <h3 className="font-lexend text-sm font-bold tracking-tight">STATUS ARMADA</h3>
         </div>
-        <span className="text-[11px] bg-blue-50 text-blue-500 px-3 py-1 rounded-full font-medium">Hari Ini</span>
+        <span className="rounded-full bg-sky-100/80 px-2.5 py-0.5 text-[9px] font-bold text-sky-900">
+          Hari Ini
+        </span>
       </div>
 
+      
       <div className="grid grid-cols-4 gap-2">
-        {stats.map((item, idx) => {
-          const Icon = item.icon;
-          return (
-            <div key={idx} className="bg-white border border-gray-100 shadow-sm rounded-2xl p-3 flex flex-col items-center justify-center text-center">
-              <Icon className={`w-6 h-6 ${item.color} mb-1`} />
-              <span className="text-xl font-bold text-gray-800">{item.count}</span>
-              <span className="text-[10px] text-gray-400 font-medium capitalize mt-0.5">{item.label}</span>
-            </div>
-          );
-        })}
+       
+        <div className="flex flex-col items-center justify-center rounded-[16px] border border-gray-100 bg-white py-2.5 px-1 text-center shadow-xs">
+          <div className="mb-1 flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-50 text-emerald-600">
+            <Truck className="w-4 h-4" />
+          </div>
+          <span className="font-lexend text-lg font-bold text-emerald-600 leading-tight">18</span>
+          <span className="text-[9px] font-medium text-gray-500">Aktif</span>
+        </div>
+
+       
+        <div className="flex flex-col items-center justify-center rounded-[16px] border border-gray-100 bg-white py-2.5 px-1 text-center shadow-xs">
+          <div className="mb-1 flex h-7 w-7 items-center justify-center rounded-lg bg-amber-50 text-amber-500">
+            <Truck className="w-4 h-4" />
+          </div>
+          <span className="font-lexend text-lg font-bold text-amber-500 leading-tight">5</span>
+          <span className="text-[9px] font-medium text-gray-400">Perjalanan</span>
+        </div>
+
+       
+        <div className="flex flex-col items-center justify-center rounded-[16px] border border-gray-100 bg-white py-2.5 px-1 text-center shadow-xs">
+          <div className="mb-1 flex h-7 w-7 items-center justify-center rounded-lg bg-rose-50 text-rose-600">
+            <Wrench className="w-4 h-4" />
+          </div>
+          <span className="font-lexend text-lg font-bold text-rose-600 leading-tight">2</span>
+          <span className="text-[9px] font-medium text-gray-400">Maintenance</span>
+        </div>
+
+        
+        <div className="flex flex-col items-center justify-center rounded-[16px] border border-gray-100 bg-white py-2.5 px-1 text-center shadow-xs">
+          <div className="mb-1 flex h-7 w-7 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
+            <ShieldCheck className="w-4 h-4" />
+          </div>
+          <span className="font-lexend text-lg font-bold text-blue-600 leading-tight">20</span>
+          <span className="text-[9px] font-medium text-gray-400">Tersedia</span>
+        </div>
       </div>
     </div>
   );
