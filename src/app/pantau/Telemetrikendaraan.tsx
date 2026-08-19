@@ -5,7 +5,7 @@ export default function Telemetrikendaraan() {
     <div className="grid grid-cols-3 gap-2.5">
      
       <div className="bg-white p-2.5 rounded-2xl flex flex-col items-center justify-center text-center shadow-sm border border-gray-100 aspect-square">
-        <div className="w-9 h-9 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mb-1 flex-shrink-0">
+        <div className="w-9 h-9 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mb-1 shrink-0">
           <span className="material-symbols-outlined text-lg">speed</span>
         </div>
         <span className="text-gray-400 text-[10px] font-medium leading-none mb-1 block">Current Speed</span>
@@ -16,7 +16,7 @@ export default function Telemetrikendaraan() {
 
       
       <div className="bg-white p-2.5 rounded-2xl flex flex-col items-center justify-center text-center shadow-sm border border-gray-100 aspect-square">
-        <div className="w-9 h-9 bg-orange-50 text-orange-500 rounded-full flex items-center justify-center mb-1 flex-shrink-0">
+        <div className="w-9 h-9 bg-orange-50 text-orange-500 rounded-full flex items-center justify-center mb-1 shrink-0">
           <span className="material-symbols-outlined text-lg">update</span>
         </div>
         <span className="text-gray-400 text-[10px] font-medium leading-none mb-1 block">Engine Hours</span>
@@ -25,7 +25,7 @@ export default function Telemetrikendaraan() {
 
      
       <div className="bg-white p-2.5 rounded-2xl flex flex-col items-center justify-center text-center shadow-sm border border-gray-100 aspect-square">
-        <div className="w-9 h-9 bg-orange-50 text-orange-500 rounded-full flex items-center justify-center mb-1 flex-shrink-0">
+        <div className="w-9 h-9 bg-orange-50 text-orange-500 rounded-full flex items-center justify-center mb-1 shrink-0">
           <span className="material-symbols-outlined text-lg">gas_meter</span>
         </div>
         <span className="text-gray-400 text-[10px] font-medium leading-none mb-1 block">Fuel Level</span>
@@ -33,7 +33,7 @@ export default function Telemetrikendaraan() {
       </div>
 
       <div className="bg-white p-2.5 rounded-2xl flex flex-col items-center justify-center text-center shadow-sm border border-gray-100 aspect-square">
-        <div className="w-9 h-9 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mb-1 flex-shrink-0">
+        <div className="w-9 h-9 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mb-1 shrink-0">
           <span className="material-symbols-outlined text-lg">turn_slight_right</span>
         </div>
         <span className="text-gray-400 text-[10px] font-medium leading-none mb-1 block">Trip Distance</span>
@@ -42,7 +42,7 @@ export default function Telemetrikendaraan() {
 
       
       <div className="bg-white p-2.5 rounded-2xl flex flex-col items-center justify-center text-center shadow-sm border border-gray-100 aspect-square">
-        <div className="w-9 h-9 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mb-1 flex-shrink-0">
+        <div className="w-9 h-9 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mb-1 shrink-0">
           <span className="material-symbols-outlined text-lg">multiple_stop</span>
         </div>
         <span className="text-gray-400 text-[10px] font-medium leading-none mb-1 block">Total Distance</span>
@@ -51,7 +51,7 @@ export default function Telemetrikendaraan() {
 
      
       <div className="bg-white p-2.5 rounded-2xl flex flex-col items-center justify-center text-center shadow-sm border border-gray-100 aspect-square">
-        <div className="w-9 h-9 bg-purple-50 text-purple-600 rounded-full flex items-center justify-center mb-1 flex-shrink-0">
+        <div className="w-9 h-9 bg-purple-50 text-purple-600 rounded-full flex items-center justify-center mb-1 shrink-0">
           <span className="material-symbols-outlined text-lg">battery_std</span>
         </div>
         <span className="text-gray-400 text-[10px] font-medium leading-none mb-1 block">GPS Battery</span>

@@ -4,14 +4,14 @@ import { Sun } from 'lucide-react';
 
 export default function Statistik() {
   return (
-    <div className="relative overflow-hidden bg-gradient-to-br from-sky-400 via-blue-500 to-blue-700 px-5 pt-8 pb-14 text-white">
+    <div className="relative overflow-hidden bg-linear-to-br from-sky-400 via-blue-500 to-blue-700 px-5 pt-8 pb-14 text-white">
      
       <Image
   src="/assets/Logo Pindai Tracker.svg"
   alt="Logo Watermark"
   width={224}
   height={224}
-  className="absolute -right-8 -top-2 w-56 opacity-25 rotate-[12deg] pointer-events-none"
+  className="absolute -right-8 -top-2 w-56 opacity-25 rotate-12deg pointer-events-none"
 />
 
       

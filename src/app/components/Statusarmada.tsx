@@ -3,7 +3,7 @@ import { Truck, Wrench, ShieldCheck } from 'lucide-react';
 
 export default function Statusarmada() {
   return (
-    <div className="relative z-20 -mt-10 mb-4 mx-2 rounded-[24px] bg-white p-4 shadow-lg shadow-black/5 border border-gray-100/80 space-y-3">
+    <div className="relative z-20 -mt-10 mb-4 mx-2 rounded-3xl bg-white p-4 shadow-lg shadow-black/5 border border-gray-100/80 space-y-3">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2 text-teal-900">
           <Truck className="w-5 h-5 text-sky-600" />
@@ -17,7 +17,7 @@ export default function Statusarmada() {
       
       <div className="grid grid-cols-4 gap-2">
        
-        <div className="flex flex-col items-center justify-center rounded-[16px] border border-gray-100 bg-white py-2.5 px-1 text-center shadow-xs">
+        <div className="flex flex-col items-center justify-center rounded-2xl border border-gray-100 bg-white py-2.5 px-1 text-center shadow-xs">
           <div className="mb-1 flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-50 text-emerald-600">
             <Truck className="w-4 h-4" />
           </div>
@@ -26,7 +26,7 @@ export default function Statusarmada() {
         </div>
 
        
-        <div className="flex flex-col items-center justify-center rounded-[16px] border border-gray-100 bg-white py-2.5 px-1 text-center shadow-xs">
+        <div className="flex flex-col items-center justify-center rounded-2xl border border-gray-100 bg-white py-2.5 px-1 text-center shadow-xs">
           <div className="mb-1 flex h-7 w-7 items-center justify-center rounded-lg bg-amber-50 text-amber-500">
             <Truck className="w-4 h-4" />
           </div>
@@ -35,7 +35,7 @@ export default function Statusarmada() {
         </div>
 
        
-        <div className="flex flex-col items-center justify-center rounded-[16px] border border-gray-100 bg-white py-2.5 px-1 text-center shadow-xs">
+        <div className="flex flex-col items-center justify-center rounded-2xl border border-gray-100 bg-white py-2.5 px-1 text-center shadow-xs">
           <div className="mb-1 flex h-7 w-7 items-center justify-center rounded-lg bg-rose-50 text-rose-600">
             <Wrench className="w-4 h-4" />
           </div>
@@ -44,7 +44,7 @@ export default function Statusarmada() {
         </div>
 
         
-        <div className="flex flex-col items-center justify-center rounded-[16px] border border-gray-100 bg-white py-2.5 px-1 text-center shadow-xs">
+        <div className="flex flex-col items-center justify-center rounded-2xl border border-gray-100 bg-white py-2.5 px-1 text-center shadow-xs">
           <div className="mb-1 flex h-7 w-7 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
             <ShieldCheck className="w-4 h-4" />
           </div>

@@ -18,7 +18,7 @@ export default function Trackingheader() {
       <div className="bg-white text-gray-800 p-4 rounded-2xl flex items-center justify-between shadow-md">
         <div className="flex items-center gap-3">
          
-          <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center flex-shrink-0">
+          <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center shrink-0">
             
             <span className="material-symbols-outlined text-2xl">
               location_on
