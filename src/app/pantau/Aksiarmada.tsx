@@ -49,8 +49,7 @@ export default function AksiArmada({
 
       {/* Quick Action Grid */}
       <div className="grid grid-cols-3 gap-2.5">
-        <a
-          href={`tel:${vehicle.phone}`}
+        <Link href={`tel:${vehicle.phone}`}
           className="bg-sky-50 hover:bg-sky-100 text-sky-600 rounded-2xl p-3 flex flex-col items-center justify-center text-center transition-colors"
         >
           <MaterialIcon name="call" fill={true} className="text-xl mb-1" />
@@ -59,7 +58,7 @@ export default function AksiArmada({
             <br />
             Driver
           </span>
-        </a>
+        </Link>
 
         <button
           type="button"

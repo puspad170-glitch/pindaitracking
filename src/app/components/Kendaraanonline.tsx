@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Image from 'next/image';
 import React from 'react';
 import MaterialIcon from './MaterialIcon';
@@ -12,9 +13,9 @@ export default function Kendaraanonline() {
     <div className="rounded-2xl bg-white p-4 shadow-xs border border-gray-100 space-y-3">
       <div className="flex items-center justify-between">
         <h3 className="font-lexend text-sm font-bold text-teal-900">KENDARAAN ONLINE</h3>
-        <a href="#" className="text-[11px] font-medium text-sky-500 hover:underline flex items-center gap-0.5">
+        <Link href="#" className="text-[11px] font-medium text-sky-500 hover:underline flex items-center gap-0.5">
           Lihat semua <MaterialIcon name="chevron_right" className="text-sm" />
-        </a>
+        </Link>
       </div>
 
       <div className="space-y-2.5">

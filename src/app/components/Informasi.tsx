@@ -1,5 +1,5 @@
 'use client';
-
+import Link from 'next/link';
 import React, { useState } from 'react';
 import MaterialIcon from './MaterialIcon';
 
@@ -11,9 +11,9 @@ export default function Informasi() {
     <div className="rounded-2xl bg-white p-4 shadow-xs border border-gray-100 space-y-3">
       <div className="flex items-center justify-between">
         <h3 className="font-lexend text-sm font-bold text-teal-900">INFORMASI & PENGUMUMAN</h3>
-        <a href="#" className="text-[11px] font-medium text-sky-500 hover:underline flex items-center gap-0.5">
+        <Link href="#" className="text-[11px] font-medium text-sky-500 hover:underline flex items-center gap-0.5">
           Lihat semua <MaterialIcon name="chevron_right" className="text-sm" />
-        </a>
+        </Link>
       </div>
 
       
