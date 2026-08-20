@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import MaterialIcon from '../components/MaterialIcon';
 import { VehicleData, getVehicleGroups, sampleVehicles } from './data/vehicles';
 
@@ -116,16 +117,15 @@ export default function DaftarArmadaAccordion({
                         >
                           <div className="flex items-center gap-2.5 min-w-0">
                             {/* Vehicle Icon Badge */}
-                            <div
-                              className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 shadow-xs ${vehicle.status === 'online'
-                                  ? 'bg-emerald-600 text-white'
-                                  : vehicle.status === 'perjalanan'
-                                    ? 'bg-amber-500 text-white'
-                                    : 'bg-slate-400 text-white'
-                                }`}
-                            >
-                              <MaterialIcon name="local_shipping" fill={true} className="text-xl" />
-                            </div>
+                            <div className="relative w-12 h-10 rounded-lg overflow-hidden bg-gray-100 shrink-0 border border-gray-200"> ⬅️
+                             <Image                                                                                                   
+                              src={vehicle.image || '/assets/Truk_2.jpeg'}                                                              
+                               alt={vehicle.id}                                                                                       
+                               fill                                                                                                   
+                               sizes="48px"                                                                                           
+                               className="object-cover"                                                                               
+                               />                                                                                                       
+                              </div>
 
                             {/* Info text */}
                             <div className="min-w-0">

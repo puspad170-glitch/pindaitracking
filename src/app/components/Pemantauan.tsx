@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import MaterialIcon from './MaterialIcon';
 
@@ -14,7 +15,6 @@ export default function Pemantauan() {
           />
         </div>
 
-      
         <div className="relative h-44 w-full overflow-hidden rounded-xl bg-slate-100 border border-gray-200">
           <iframe
             className="h-full w-full object-cover pointer-events-none"
@@ -28,8 +28,14 @@ export default function Pemantauan() {
 
         {/* Dynamic Detail Card */}
         <div className="rounded-xl border border-gray-100 bg-slate-50 p-3 flex items-center justify-between gap-3">
-          <div className="flex h-12 w-16 shrink-0 items-center justify-center rounded-lg bg-gray-200 border border-gray-200 overflow-hidden">
-            <img src="/assets/Truk.jpg" alt="Foto Kendaraan" className="h-full w-full object-cover" />
+          <div className="relative flex h-12 w-16 shrink-0 items-center justify-center rounded-lg bg-gray-200 border border-gray-200 overflow-hidden">
+            <Image 
+            src="/assets/Truk.jpg" 
+            alt="Foto Kendaraan" 
+            fill 
+            sizes="(max-width: 768px) 100vw, 64px"
+            className="object-cover" 
+            />
           </div>
 
           <div className="flex-1 min-w-0 space-y-0.5">

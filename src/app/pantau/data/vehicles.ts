@@ -10,6 +10,7 @@ export interface VehicleData {
   type: string;
   driver: string;
   phone: string;
+  image?: string;
   status: 'online' | 'perjalanan' | 'maintenance' | 'tersedia';
   statusLabel: string;
   engineStatus: 'ON' | 'OFF';
@@ -39,6 +40,7 @@ export const sampleVehicles: VehicleData[] = [
     type: 'Truk Compactor 01',
     driver: 'Budi Santoso',
     phone: '0812-3456-7890',
+    image: '/assets/Truk_2.jpeg',
     status: 'online',
     statusLabel: 'Online',
     engineStatus: 'ON',
