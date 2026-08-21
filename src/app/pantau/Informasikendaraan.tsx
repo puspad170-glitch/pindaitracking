@@ -1,5 +1,5 @@
 import React from 'react';
-import MaterialIcon from '../components/MaterialIcon';
+import Image from 'next/image';
 import { VehicleData, sampleVehicles } from './data/vehicles';
 
 interface InformasiKendaraanProps {
@@ -21,16 +21,15 @@ export default function InformasiKendaraan({
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3 min-w-0">
           {/* Vehicle Icon Badge */}
-          <div
-            className={`w-14 h-12 rounded-xl overflow-hidden flex items-center justify-center shadow-xs text-white shrink-0 ${isOnline
-                ? 'bg-emerald-700'
-                : isPerjalanan
-                  ? 'bg-amber-600'
-                  : 'bg-slate-500'
-              }`}
-          >
-            <MaterialIcon name="local_shipping" fill={true} className="text-2xl" />
-          </div>
+          <div className="relative w-14 h-12 rounded-xl overflow-hidden bg-gray-100 shrink-0 border border-gray-200">
+              <Image
+              src={vehicle.image || '/assets/Truk_2.jpeg'}
+              alt={vehicle.id}
+              fill
+              sizes="56px"
+              className="object-cover"
+              />
+              </div>
 
           {/* Details */}
           <div className="min-w-0">

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import MaterialIcon from '../components/MaterialIcon';
 import Trackingheader from './Trackingheader';
 import Petaarmada from './Petaarmada';
@@ -52,24 +53,29 @@ export default function PantauPage() {
                 showSwitchButton={true}
               />
             ) : (
-              <div
-                onClick={() => setIsSheetExpanded(true)}
-                className="bg-white rounded-2xl p-3.5 shadow-sm border border-gray-100 flex items-center justify-between cursor-pointer hover:border-blue-200 transition-colors"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-11 bg-blue-600 rounded-xl flex items-center justify-center text-white shadow-xs">
-                    <MaterialIcon name="local_shipping" fill={true} className="text-2xl" />
-                  </div>
-                  <div>
-                    <h3 className="font-extrabold text-gray-900 text-sm">
-                      Daftar Armada ({sampleVehicles.length})
-                    </h3>
-                    <p className="text-[10px] text-gray-500">
-                      Pilih armada untuk melihat telemetri & rute
-                    </p>
-                  </div>
-                </div>
-              </div>
+             <div
+    onClick={() => setIsSheetExpanded(true)}
+    className="bg-white rounded-2xl p-3.5 shadow-sm border border-gray-100 flex items-center justify-between cursor-pointer hover:border-blue-200 transition-colors"
+  >
+    <div className="flex items-center gap-3">
+     
+      <div className="relative w-12 h-11 rounded-xl overflow-hidden bg-gray-100 shrink-0 border border-gray-200">
+        <Image
+          src="/assets/Truk_2.jpeg"
+          alt="Daftar Armada"
+          fill
+          sizes="48px"
+          className="object-cover"
+        />
+      </div>
+      <div>
+        <h3 className="font-extrabold text-gray-900 text-sm">
+          Daftar Armada ({sampleVehicles.length})
+        </h3>
+       
+      </div>
+    </div>
+  </div>
             )
           }
         >
