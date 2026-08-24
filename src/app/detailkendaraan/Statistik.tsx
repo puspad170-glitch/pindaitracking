@@ -1,13 +1,11 @@
 "use client";
 
-import { Gauge, History, Fuel, TrendingUp, Route, BatteryFull } from "lucide-react";
+import { Gauge, Clock, Fuel, Navigation, Milestone, BatteryMedium } from "lucide-react";
 import { ReactNode } from "react";
 
 interface StatBoxProps {
   icon: ReactNode;
-  iconBg: string;
-  iconColor: string;
-  variant?: "circle" | "square";
+  color: string;
   label: string;
   value: string;
   unit: string;
@@ -15,25 +13,13 @@ interface StatBoxProps {
   barValue?: number;
 }
 
-function StatBox({
-  icon,
-  iconBg,
-  iconColor,
-  variant = "circle",
-  label,
-  value,
-  unit,
-  showBar,
-  barValue,
-}: StatBoxProps) {
+function StatBox({ icon, color, label, value, unit, showBar, barValue }: StatBoxProps) {
   return (
     <div className="bg-[#F7F9FC] rounded-xl p-3">
-      <div className="flex items-center gap-2.5 mb-1.5">
+      <div className="flex items-center gap-2 mb-1.5">
         <div
-          className={`w-10 h-10 flex items-center justify-center shrink-0 ${
-            variant === "circle" ? "rounded-full" : "rounded-[14px]"
-          }`}
-          style={{ background: iconBg, color: iconColor }}
+          className="w-[26px] h-[26px] rounded-lg flex items-center justify-center text-white"
+          style={{ background: color }}
         >
           {icon}
         </div>
@@ -65,8 +51,8 @@ interface StatistikProps {
 
 export default function Statistik({
   speed = 35,
-  engineHours = 34.6,
-  fuelLevel = 52,
+  engineHours = 54.6,
+  fuelLevel = 92,
   tripDistance = 49.7,
   totalDistance = 580,
   gpsBattery = 95,
@@ -79,55 +65,43 @@ export default function Statistik({
 
       <div className="grid grid-cols-2 gap-2.5">
         <StatBox
-          icon={<Gauge size={20} />}
-          iconBg="#E9F1FE"
-          iconColor="#3B82F6"
-          variant="circle"
-          label="Current Speed"
+          icon={<Gauge size={13} />}
+          color="#1E88E5"
+          label="Kecepatan"
           value={String(speed)}
           unit="km/jam"
         />
         <StatBox
-          icon={<History size={20} />}
-          iconBg="#FFF1E7"
-          iconColor="#F97316"
-          variant="circle"
+          icon={<Clock size={13} />}
+          color="#7E57C2"
           label="Engine Hours"
           value={String(engineHours)}
           unit="jam"
         />
         <StatBox
-          icon={<Fuel size={20} />}
-          iconBg="#F97316"
-          iconColor="#FFFFFF"
-          variant="square"
+          icon={<Fuel size={13} />}
+          color="#FB8C00"
           label="Fuel Level"
           value={String(fuelLevel)}
           unit="Liter"
         />
         <StatBox
-          icon={<TrendingUp size={20} />}
-          iconBg="#E9F9EF"
-          iconColor="#22C55E"
-          variant="circle"
+          icon={<Navigation size={13} />}
+          color="#26A69A"
           label="Trip Distance"
           value={String(tripDistance)}
           unit="km"
         />
         <StatBox
-          icon={<Route size={20} />}
-          iconBg="#E6FBF7"
-          iconColor="#14B8A6"
-          variant="circle"
+          icon={<Milestone size={13} />}
+          color="#5C6BC0"
           label="Total Distance"
           value={String(totalDistance)}
           unit="km"
         />
         <StatBox
-          icon={<BatteryFull size={20} />}
-          iconBg="#8B5CF6"
-          iconColor="#FFFFFF"
-          variant="square"
+          icon={<BatteryMedium size={13} />}
+          color="#43A047"
           label="GPS Battery"
           value={String(gpsBattery)}
           unit="%"
