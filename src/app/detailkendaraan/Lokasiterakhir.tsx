@@ -17,7 +17,7 @@ export default function LokasiTerakhir({
   latitude = -6.6346,
   longitude = 106.8066,
 }: LokasiTerakhirProps) {
-  // Format URL Embed Google Maps gratis (tanpa API Key)
+  
   const mapEmbedUrl = `https://maps.google.com/maps?q=${latitude},${longitude}&z=15&output=embed`;
 
   return (
@@ -28,7 +28,7 @@ export default function LokasiTerakhir({
 
       <div className="relative w-full h-[110px] rounded-xl bg-gradient-to-br from-[#EAF3E1] to-[#DDEBD0] overflow-hidden mb-2.5">
         {mapImageUrl ? (
-          // eslint-disable-next-line @next/next/no-img-element
+        
           <img src={mapImageUrl} alt="Peta lokasi" className="w-full h-full object-cover" />
         ) : (
           <iframe
@@ -42,7 +42,7 @@ export default function LokasiTerakhir({
           />
         )}
 
-        {/* Pin Marker Merah Tetap Di Tengah Melayang */}
+        
         <MapPin
           size={26}
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-full text-[#E53935] pointer-events-none drop-shadow-md z-10"

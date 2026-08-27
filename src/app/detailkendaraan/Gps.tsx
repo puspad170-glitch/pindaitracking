@@ -21,7 +21,7 @@ export default function Gps({
 }: GpsProps) {
   return (
     <div className="bg-white rounded-2xl p-4 shadow-[0_2px_10px_rgba(20,30,60,0.06)] mb-3.5">
-      {/* Container Foto Utama */}
+      
       <div className="relative w-full h-37.5 rounded-xl overflow-hidden bg-gray-100">
         <Image
           src={imageSrc}
@@ -31,7 +31,7 @@ export default function Gps({
           priority
         />
 
-        {/* Badge Status Online/Offline (tetap melayang di atas foto) */}
+        
         <div
           className={`absolute top-2.5 right-2.5 z-10 flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-bold backdrop-blur-xs ${
             isOnline ? "bg-[#E6F7EE]/90 text-[#1B8A4A]" : "bg-[#FDECEA]/90 text-[#C62828]"
@@ -46,7 +46,7 @@ export default function Gps({
         </div>
       </div>
 
-      {/* Informasi Detail Kendaraan */}
+      
       <div className="flex justify-between items-start mt-3.5">
         <div>
           <div className="text-[19px] font-extrabold text-[#1a1a2e]">{plateNumber}</div>
