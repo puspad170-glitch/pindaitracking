@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { User, Phone, MessageCircle } from "lucide-react";
 
 interface PengemudiProps {
@@ -13,7 +14,7 @@ interface PengemudiProps {
 export default function Pengemudi({
   name = "Budi Santoso",
   phone = "0123456789",
-  avatarUrl,
+  avatarUrl = "/assets/Driver.png",
   onCall,
   onChat,
 }: PengemudiProps) {
@@ -24,10 +25,14 @@ export default function Pengemudi({
       </div>
 
       <div className="flex items-center gap-3">
-        <div className="w-[52px] h-[52px] rounded-full bg-[#DCEEFF] flex items-center justify-center flex-shrink-0 overflow-hidden">
+        <div className="relative w-[52px] h-[52px] rounded-full bg-[#DCEEFF] flex items-center justify-center flex-shrink-0 overflow-hidden">
           {avatarUrl ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img src={avatarUrl} alt={name} className="w-full h-full object-cover" />
+            <Image
+              src={avatarUrl}
+              alt={name}
+              fill
+              className="object-cover"
+            />
           ) : (
             <User size={24} className="text-[#1E88E5]" />
           )}

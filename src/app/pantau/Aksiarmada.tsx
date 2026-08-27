@@ -88,7 +88,7 @@ export default function AksiArmada({
 
       {/* Detail Button */}
       <Link
-        href="/detail-kendaraan"
+        href="/detailkendaraan"
         className="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-3.5 px-6 rounded-2xl flex items-center justify-center gap-2 text-xs shadow-md shadow-amber-500/20 transition-all active:scale-[0.98]"
       >
         Lihat Detail Kendaraan ({vehicle.id})
