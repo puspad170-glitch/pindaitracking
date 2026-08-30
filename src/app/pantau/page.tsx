@@ -1,8 +1,7 @@
 'use client';
-import Link from 'next/link';
 
+import Link from 'next/link';
 import React, { useState } from 'react';
-import Image from 'next/image';
 import MaterialIcon from '../components/MaterialIcon';
 import Trackingheader from './Trackingheader';
 import Petaarmada from './Petaarmada';
@@ -33,16 +32,13 @@ export default function PantauPage() {
   return (
     <div className="flex justify-center min-h-screen bg-slate-900 antialiased font-sans">
       <div className="relative w-full max-w-md min-h-screen overflow-hidden bg-slate-100">
-        {/* Fullscreen Map Background */}
         <Petaarmada mapQuery={selectedVehicle?.mapQuery ?? '-6.5971,106.7949'} />
 
-        {/* Floating Header on Map */}
         <Trackingheader
           selectedVehicle={selectedVehicle}
           onShowList={selectedVehicle ? handleBackToList : undefined}
         />
 
-        {/* Swipeable Bottom Sheet */}
         <BottomSheet
           isExpanded={isSheetExpanded}
           onExpandedChange={setIsSheetExpanded}
@@ -54,36 +50,26 @@ export default function PantauPage() {
                 showSwitchButton={true}
               />
             ) : (
-             <div
-    onClick={() => setIsSheetExpanded(true)}
-    className="bg-white rounded-2xl p-3.5 shadow-sm border border-gray-100 flex items-center justify-between cursor-pointer hover:border-blue-200 transition-colors"
-  >
-    <div className="flex items-center gap-3">
-     
-      <div className="relative w-12 h-11 rounded-xl overflow-hidden bg-gray-100 shrink-0 border border-gray-200">
-        <Image
-          src="/assets/Truk_2.jpeg"
-          alt="Daftar Armada"
-          fill
-          sizes="48px"
-          className="object-cover"
-        />
-      </div>
-      <div>
-        <h3 className="font-extrabold text-gray-900 text-sm">
-          Daftar Armada ({sampleVehicles.length})
-        </h3>
-       
-      </div>
-    </div>
-  </div>
+              <div
+                onClick={() => setIsSheetExpanded(true)}
+                className="bg-white rounded-2xl p-3.5 shadow-sm border border-gray-100 flex items-center justify-between cursor-pointer hover:border-blue-200 transition-colors"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 border border-blue-100">
+                    <MaterialIcon name="local_shipping" fill={true} className="text-xl" />
+                  </div>
+                  <div>
+                    <h3 className="font-extrabold text-gray-900 text-sm">
+                      Daftar Armada ({sampleVehicles.length})
+                    </h3>
+                  </div>
+                </div>
+              </div>
             )
           }
         >
           {selectedVehicle ? (
-            /* Vehicle Detail View */
             <div className="space-y-3">
-              {/* Back to List Button */}
               <button
                 type="button"
                 onClick={handleBackToList}
@@ -93,17 +79,14 @@ export default function PantauPage() {
                 Kembali ke Daftar Armada
               </button>
 
-              {/* Destination Card */}
               <LokasiTujuanCard destination={selectedVehicle.destination} />
 
-              {/* Dynamic Telemetry or Replay Filter */}
               {activeTab === 'tracking' ? (
                 <Telemetrikendaraan vehicle={selectedVehicle} />
               ) : (
                 <Filterreplay />
               )}
 
-              {/* Fleet Actions */}
               <Aksiarmada
                 vehicle={selectedVehicle}
                 activeTab={activeTab}
@@ -111,10 +94,7 @@ export default function PantauPage() {
               />
             </div>
           ) : (
-            /* Grouped Accordion Vehicle List */
-            <DaftarArmadaAccordion
-              onSelectVehicle={handleSelectVehicle}
-            />
+            <DaftarArmadaAccordion onSelectVehicle={handleSelectVehicle} />
           )}
         </BottomSheet>
       </div>

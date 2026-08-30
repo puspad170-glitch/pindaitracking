@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowLeft } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 interface NavbarProps {
   title?: string;
@@ -13,13 +14,23 @@ export default function Navbar({
   subtitle = "Informasi lengkap kendaraan",
   onBack,
 }: NavbarProps) {
+  const router = useRouter();
+
+  const handleBack = () => {
+    if (onBack) {
+      onBack();
+    } else {
+      router.back();
+    }
+  };
+
   return (
-    <div className="bg-gradient-to-br from-[#1E88E5] to-[#29B6F6] px-5 pt-6 pb-16 rounded-b-none">
+    <div className="bg-gradient-to-br from-[#1E88E5] to-[#29B6F6] px-5 pt-6 pb-12 rounded-b-[32px]">
       <div className="flex items-center gap-3.5">
         <button
-          onClick={onBack}
+          onClick={handleBack}
           aria-label="Kembali"
-          className="w-[34px] h-[34px] rounded-full bg-white/20 flex items-center justify-center text-white active:scale-95 transition"
+          className="w-[34px] h-[34px] rounded-full bg-white/20 flex items-center justify-center text-white active:scale-95 transition cursor-pointer"
         >
           <ArrowLeft size={16} />
         </button>

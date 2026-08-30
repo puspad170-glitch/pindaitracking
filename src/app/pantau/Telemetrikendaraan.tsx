@@ -1,4 +1,7 @@
+'use client';
+
 import React from 'react';
+import Link from 'next/link';
 import MaterialIcon from '../components/MaterialIcon';
 import { VehicleData, sampleVehicles } from './data/vehicles';
 
@@ -9,86 +12,112 @@ interface TelemetrikendaraanProps {
 export default function Telemetrikendaraan({
   vehicle = sampleVehicles[0],
 }: TelemetrikendaraanProps) {
+  const vehicleId = vehicle.id || '1';
+
   return (
-    <div className="grid grid-cols-3 gap-2.5">
-      {/* Current Speed */}
-      <div className="bg-white p-2.5 rounded-2xl flex flex-col items-center justify-center text-center shadow-xs border border-gray-100 aspect-square">
-        <div className="w-9 h-9 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mb-1 shrink-0">
-          <MaterialIcon name="speed" fill={true} className="text-lg" />
+    <div className="grid grid-cols-2 gap-2.5">
+      <Link
+        href={`/kendaraan/${vehicleId}`}
+        className="bg-white p-2.5 rounded-2xl border border-gray-100 flex flex-col justify-between shadow-2xs hover:border-blue-200 transition-colors cursor-pointer"
+      >
+        <div className="flex items-center gap-2 mb-1.5">
+          <div className="w-7 h-7 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center shrink-0">
+            <MaterialIcon name="speed" fill={true} className="text-sm" />
+          </div>
+          <span className="text-gray-400 text-[11px] font-semibold leading-tight truncate">
+            Current Speed
+          </span>
         </div>
-        <span className="text-gray-400 text-[10px] font-medium leading-none mb-1 block">
-          Current Speed
-        </span>
-        <span className="font-extrabold text-gray-900 text-[11px] leading-tight">
+        <div className="font-extrabold text-gray-900 text-sm leading-tight">
           {vehicle.speed}{' '}
-          <span className="text-[9px] font-semibold text-gray-600">{vehicle.speedUnit}</span>
-        </span>
-      </div>
-
-      {/* Engine Hours */}
-      <div className="bg-white p-2.5 rounded-2xl flex flex-col items-center justify-center text-center shadow-xs border border-gray-100 aspect-square">
-        <div className="w-9 h-9 bg-orange-50 text-orange-500 rounded-full flex items-center justify-center mb-1 shrink-0">
-          <MaterialIcon name="update" className="text-lg" />
+          <span className="text-[10px] font-semibold text-gray-500">{vehicle.speedUnit}</span>
         </div>
-        <span className="text-gray-400 text-[10px] font-medium leading-none mb-1 block">
-          Engine Hours
-        </span>
-        <span className="font-extrabold text-gray-900 text-[11px] leading-tight">
+      </Link>
+
+      <Link
+        href={`/kendaraan/${vehicleId}`}
+        className="bg-white p-2.5 rounded-2xl border border-gray-100 flex flex-col justify-between shadow-2xs hover:border-blue-200 transition-colors cursor-pointer"
+      >
+        <div className="flex items-center gap-2 mb-1.5">
+          <div className="w-7 h-7 bg-orange-50 text-orange-500 rounded-lg flex items-center justify-center shrink-0">
+            <MaterialIcon name="update" className="text-sm" />
+          </div>
+          <span className="text-gray-400 text-[11px] font-semibold leading-tight truncate">
+            Engine Hours
+          </span>
+        </div>
+        <div className="font-extrabold text-gray-900 text-sm leading-tight">
           {vehicle.engineHours}
-        </span>
-      </div>
-
-      {/* Fuel Level */}
-      <div className="bg-white p-2.5 rounded-2xl flex flex-col items-center justify-center text-center shadow-xs border border-gray-100 aspect-square">
-        <div className="w-9 h-9 bg-orange-50 text-orange-500 rounded-full flex items-center justify-center mb-1 shrink-0">
-          <MaterialIcon name="gas_meter" fill={true} className="text-lg" />
         </div>
-        <span className="text-gray-400 text-[10px] font-medium leading-none mb-1 block">
-          Fuel Level
-        </span>
-        <span className="font-extrabold text-gray-900 text-[11px] leading-tight">
+      </Link>
+
+      <Link
+        href={`/kendaraan/${vehicleId}`}
+        className="bg-white p-2.5 rounded-2xl border border-gray-100 flex flex-col justify-between shadow-2xs hover:border-blue-200 transition-colors cursor-pointer"
+      >
+        <div className="flex items-center gap-2 mb-1.5">
+          <div className="w-7 h-7 bg-orange-50 text-orange-500 rounded-lg flex items-center justify-center shrink-0">
+            <MaterialIcon name="gas_meter" fill={true} className="text-sm" />
+          </div>
+          <span className="text-gray-400 text-[11px] font-semibold leading-tight truncate">
+            Fuel Level
+          </span>
+        </div>
+        <div className="font-extrabold text-gray-900 text-sm leading-tight">
           {vehicle.fuelLevel}
-        </span>
-      </div>
-
-      {/* Trip Distance */}
-      <div className="bg-white p-2.5 rounded-2xl flex flex-col items-center justify-center text-center shadow-xs border border-gray-100 aspect-square">
-        <div className="w-9 h-9 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mb-1 shrink-0">
-          <MaterialIcon name="turn_slight_right" className="text-lg" />
         </div>
-        <span className="text-gray-400 text-[10px] font-medium leading-none mb-1 block">
-          Trip Distance
-        </span>
-        <span className="font-extrabold text-gray-900 text-[11px] leading-tight">
+      </Link>
+
+      <Link
+        href={`/kendaraan/${vehicleId}`}
+        className="bg-white p-2.5 rounded-2xl border border-gray-100 flex flex-col justify-between shadow-2xs hover:border-blue-200 transition-colors cursor-pointer"
+      >
+        <div className="flex items-center gap-2 mb-1.5">
+          <div className="w-7 h-7 bg-emerald-50 text-emerald-600 rounded-lg flex items-center justify-center shrink-0">
+            <MaterialIcon name="turn_slight_right" className="text-sm" />
+          </div>
+          <span className="text-gray-400 text-[11px] font-semibold leading-tight truncate">
+            Trip Distance
+          </span>
+        </div>
+        <div className="font-extrabold text-gray-900 text-sm leading-tight">
           {vehicle.tripDistance}
-        </span>
-      </div>
-
-      {/* Total Distance */}
-      <div className="bg-white p-2.5 rounded-2xl flex flex-col items-center justify-center text-center shadow-xs border border-gray-100 aspect-square">
-        <div className="w-9 h-9 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mb-1 shrink-0">
-          <MaterialIcon name="multiple_stop" className="text-lg" />
         </div>
-        <span className="text-gray-400 text-[10px] font-medium leading-none mb-1 block">
-          Total Distance
-        </span>
-        <span className="font-extrabold text-gray-900 text-[11px] leading-tight">
+      </Link>
+
+      <Link
+        href={`/kendaraan/${vehicleId}`}
+        className="bg-white p-2.5 rounded-2xl border border-gray-100 flex flex-col justify-between shadow-2xs hover:border-blue-200 transition-colors cursor-pointer"
+      >
+        <div className="flex items-center gap-2 mb-1.5">
+          <div className="w-7 h-7 bg-emerald-50 text-emerald-600 rounded-lg flex items-center justify-center shrink-0">
+            <MaterialIcon name="multiple_stop" className="text-sm" />
+          </div>
+          <span className="text-gray-400 text-[11px] font-semibold leading-tight truncate">
+            Total Distance
+          </span>
+        </div>
+        <div className="font-extrabold text-gray-900 text-sm leading-tight">
           {vehicle.totalDistance}
-        </span>
-      </div>
-
-      {/* GPS Battery */}
-      <div className="bg-white p-2.5 rounded-2xl flex flex-col items-center justify-center text-center shadow-xs border border-gray-100 aspect-square">
-        <div className="w-9 h-9 bg-purple-50 text-purple-600 rounded-full flex items-center justify-center mb-1 shrink-0">
-          <MaterialIcon name="battery_std" fill={true} className="text-lg" />
         </div>
-        <span className="text-gray-400 text-[10px] font-medium leading-none mb-1 block">
-          GPS Battery
-        </span>
-        <span className="font-extrabold text-gray-900 text-[11px] leading-tight">
+      </Link>
+
+      <Link
+        href={`/kendaraan/${vehicleId}`}
+        className="bg-white p-2.5 rounded-2xl border border-gray-100 flex flex-col justify-between shadow-2xs hover:border-blue-200 transition-colors cursor-pointer"
+      >
+        <div className="flex items-center gap-2 mb-1.5">
+          <div className="w-7 h-7 bg-purple-50 text-purple-600 rounded-lg flex items-center justify-center shrink-0">
+            <MaterialIcon name="battery_std" fill={true} className="text-sm" />
+          </div>
+          <span className="text-gray-400 text-[11px] font-semibold leading-tight truncate">
+            GPS Battery
+          </span>
+        </div>
+        <div className="font-extrabold text-gray-900 text-sm leading-tight">
           {vehicle.battery}
-        </span>
-      </div>
+        </div>
+      </Link>
     </div>
   );
 }
