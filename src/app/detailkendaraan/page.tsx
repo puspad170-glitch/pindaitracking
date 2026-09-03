@@ -10,10 +10,10 @@ import BottomNavbar from "./Bottomnavbar";
 
 export default function DetailArmadaPage() {
   return (
-    <div className="min-h-screen bg-[#F4F6F9] flex flex-col max-w-[440px] mx-auto">
+    <div className="w-full max-w-[430px] mx-auto min-h-screen bg-[#F4F6F9] flex flex-col relative shadow-sm pb-24">
       <Navbar />
 
-      <div className="flex-1 -mt-10 px-4 pb-4">
+      <div className="flex-1 -mt-10 px-4 space-y-4">
         <Gps />
         <Pengemudi
           onCall={() => console.log("call driver")}
@@ -28,7 +28,7 @@ export default function DetailArmadaPage() {
         />
       </div>
 
-      <BottomNavbar active="peta" onChange={(key) => console.log(key)} />
+      <BottomNavbar />
     </div>
   );
 }

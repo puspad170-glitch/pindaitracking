@@ -23,7 +23,7 @@ export default function ProfilPage() {
         />
       </div>
 
-      <Bottomnavbar active="profil" onChange={(key) => console.log(key)} />
+      <Bottomnavbar />
     </div>
   );
 }
