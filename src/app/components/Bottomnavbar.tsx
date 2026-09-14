@@ -9,6 +9,7 @@ export default function Bottomnavbar() {
   const pathname = usePathname();
 
   const isHome = pathname === '/';
+  const isArmada = pathname === '/listarmada';
   const isPantau = pathname === '/pantau';
   const isProfile = pathname === '/profile' || pathname === '/profil';
 
@@ -33,10 +34,12 @@ export default function Bottomnavbar() {
         </Link>
 
         <Link
-          href="#"
-          className="flex-1 flex flex-col items-center justify-center gap-0.5 py-2 text-gray-400 hover:text-gray-600 transition-colors font-medium"
+          href="/listarmada"
+          className={`flex-1 flex flex-col items-center justify-center gap-0.5 py-2 transition-colors ${
+            isArmada ? 'text-blue-600 font-bold' : 'text-gray-400 hover:text-gray-600 font-medium'
+          }`}
         >
-          <MaterialIcon name="local_shipping" className="text-2xl" />
+          <MaterialIcon name="local_shipping" fill={isArmada} className="text-2xl" />
           <span className="text-[10px]">Armada</span>
         </Link>
 

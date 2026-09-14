@@ -39,7 +39,7 @@ export default function InformasiPribadi({
   return (
     <div className="bg-white rounded-2xl shadow-[0_2px_10px_rgba(20,30,60,0.06)] overflow-hidden mb-3.5">
       <div className="flex justify-between items-center px-4 pt-4 pb-1">
-        <div className="text-sm font-extrabold text-[#1a1a2e]">Informasi Pribadi</div>
+        <div className="text-sm font-extrabold text-[#1a1a2e]">INFORMASI PRIBADI</div>
         <button onClick={onUbah} className="text-[12.5px] font-bold text-[#1E88E5]">
           Ubah
         </button>

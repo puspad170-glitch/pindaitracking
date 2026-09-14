@@ -59,7 +59,7 @@ export default function Pengaturan({
     <>
       <div className="bg-white rounded-2xl shadow-[0_2px_10px_rgba(20,30,60,0.06)] overflow-hidden mb-3.5">
         <div className="px-4 pt-4 pb-1">
-          <div className="text-sm font-extrabold text-[#1a1a2e]">Pengaturan</div>
+          <div className="text-sm font-extrabold text-[#1a1a2e]">PENGATURAN</div>
         </div>
 
         <SettingRow
