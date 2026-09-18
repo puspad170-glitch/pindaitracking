@@ -10,25 +10,27 @@ import BottomNavbar from "./Bottomnavbar";
 
 export default function DetailArmadaPage() {
   return (
-    <div className="w-full max-w-[430px] mx-auto min-h-screen bg-[#F4F6F9] flex flex-col relative shadow-sm pb-24">
-      <Navbar />
+    <div className="flex justify-center min-h-screen bg-slate-100 antialiased font-sans">
+      <div className="relative w-full max-w-md bg-[#F4F6F9] min-h-screen shadow-sm pb-24 overflow-hidden flex flex-col">
+        <Navbar />
 
-      <div className="flex-1 -mt-10 px-4 space-y-4">
-        <Gps />
-        <Pengemudi
-          onCall={() => console.log("call driver")}
-          onChat={() => console.log("chat driver")}
-        />
-        <Statistik />
-        <LokasiTerakhir />
-        <InformasiDokumen
-          onRiwayat={() => console.log("riwayat")}
-          onLaporkan={() => console.log("laporkan")}
-          onLihatPeta={() => console.log("lihat peta")}
-        />
+        <main className="flex-1 -mt-10 px-4 space-y-4">
+          <Gps />
+          <Pengemudi
+            onCall={() => console.log("call driver")}
+            onChat={() => console.log("chat driver")}
+          />
+          <Statistik />
+          <LokasiTerakhir />
+          <InformasiDokumen
+            onRiwayat={() => console.log("riwayat")}
+            onLaporkan={() => console.log("laporkan")}
+            onLihatPeta={() => console.log("lihat peta")}
+          />
+        </main>
+
+        <BottomNavbar />
       </div>
-
-      <BottomNavbar />
     </div>
   );
 }

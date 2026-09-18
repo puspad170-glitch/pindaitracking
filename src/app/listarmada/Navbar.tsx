@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { ArrowLeft, Search, SlidersHorizontal } from "lucide-react";
+import Link from "next/link";
+import { ArrowLeft, Plus, Search, SlidersHorizontal } from "lucide-react";
 
 export type ArmadaFilter = "semua" | "online" | "tracking" | "offline";
 
@@ -82,18 +83,29 @@ export default function Navbar({
     <div>
       {/* gradient header */}
       <div className="bg-gradient-to-br from-[#1E88E5] to-[#29B6F6] px-5 pt-5 pb-[46px]">
-        <div className="flex items-center gap-3.5">
-          <button
-            onClick={handleBack}
-            aria-label="Kembali"
-            className="w-[34px] h-[34px] rounded-full bg-white/20 flex items-center justify-center text-white flex-shrink-0 active:scale-95 transition"
-          >
-            <ArrowLeft size={16} />
-          </button>
-          <div>
-            <h1 className="text-white text-[19px] font-extrabold">{title}</h1>
-            <p className="text-[#E3F2FD] text-xs mt-0.5">{totalArmada} kendaraan terdaftar</p>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3.5">
+            <button
+              onClick={handleBack}
+              aria-label="Kembali"
+              className="w-[34px] h-[34px] rounded-full bg-white/20 flex items-center justify-center text-white flex-shrink-0 active:scale-95 transition"
+            >
+              <ArrowLeft size={16} />
+            </button>
+            <div>
+              <h1 className="text-white text-[19px] font-extrabold">{title}</h1>
+              <p className="text-[#E3F2FD] text-xs mt-0.5">{totalArmada} kendaraan terdaftar</p>
+            </div>
           </div>
+
+          {/* Tombol Tambah Armada di Pojok Kanan Atas Navbar */}
+          <Link
+            href="/armada/tambah"
+            aria-label="Tambah Armada"
+            className="w-9 h-9 rounded-full bg-white text-[#1E88E5] flex items-center justify-center shadow-md hover:bg-blue-50 active:scale-95 transition flex-shrink-0"
+          >
+            <Plus size={20} strokeWidth={2.5} />
+          </Link>
         </div>
       </div>
 

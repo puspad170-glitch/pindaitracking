@@ -1,9 +1,6 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Link from "next/link";
-import { Plus } from "lucide-react";
-
 import Navbar, { ArmadaFilter } from "./Navbar";
 import ArmadaAktif, { ArmadaAktifVehicle } from "./Armadaaktif";
 import DalamPerjalanan, { DalamPerjalananVehicle } from "./Dalamperjalanan";
@@ -24,7 +21,6 @@ const MAINTENANCE_DATA: MaintenanceVehicle[] = [
   { id: "f52604", gpsId: "GPS F52604", plate: "F 8002 KL", driver: "Hendra Wijaya", location: "Bengkel Pusat", status: "Maintenance" },
   { id: "f52011", gpsId: "GPS F52011", plate: "F 8555 MN", driver: "-", location: "Pool Cibuluh", status: "Siaga" },
 ];
-
 
 export default function ListArmadaPage() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -52,32 +48,24 @@ export default function ListArmadaPage() {
   }, [searchQuery, activeFilter]);
 
   return (
-    <div className="min-h-screen bg-[#F4F6F9] max-w-[440px] mx-auto relative">
-      <Navbar
-        totalArmada={totalArmada}
-        searchQuery={searchQuery}
-        onSearchChange={setSearchQuery}
-        activeFilter={activeFilter}
-        onFilterChange={setActiveFilter}
-      />
+    <div className="flex justify-center min-h-screen bg-slate-100 antialiased font-sans">
+      <div className="relative w-full max-w-md bg-[#F4F6F9] min-h-screen shadow-sm pb-24 overflow-hidden">
+        <Navbar
+          totalArmada={totalArmada}
+          searchQuery={searchQuery}
+          onSearchChange={setSearchQuery}
+          activeFilter={activeFilter}
+          onFilterChange={setActiveFilter}
+        />
 
-      <div className="px-4 pb-28 pt-3.5">
-        <ArmadaAktif vehicles={filteredAktif} />
-        <DalamPerjalanan vehicles={filteredPerjalanan} />
-        <Maintenance vehicles={filteredMaintenance} />
+        <main className="px-4 space-y-4 pt-3.5">
+          <ArmadaAktif vehicles={filteredAktif} />
+          <DalamPerjalanan vehicles={filteredPerjalanan} />
+          <Maintenance vehicles={filteredMaintenance} />
+        </main>
+
+        <BottomNavbar />
       </div>
-
-      {/* FAB Tambah Armada */}
-      <Link
-        href="/armada/tambah"
-        className="fixed right-[18px] z-40 flex items-center gap-2 bg-gradient-to-br from-[#1E88E5] to-[#29B6F6] text-white text-[13px] font-extrabold px-[18px] py-[13px] rounded-full shadow-[0_8px_20px_rgba(30,136,229,0.4)] active:scale-95 transition"
-        style={{ bottom: "92px" }}
-      >
-        <Plus size={17} />
-        Tambah Armada
-      </Link>
-
-      <BottomNavbar />
     </div>
   );
 }
