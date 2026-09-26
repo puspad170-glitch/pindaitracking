@@ -100,7 +100,7 @@ export default function Navbar({
 
           {/* Tombol Tambah Armada di Pojok Kanan Atas Navbar */}
           <Link
-            href="/armada/tambah"
+            href="/tambaharmada"
             aria-label="Tambah Armada"
             className="w-9 h-9 rounded-full bg-white text-[#1E88E5] flex items-center justify-center shadow-md hover:bg-blue-50 active:scale-95 transition flex-shrink-0"
           >
