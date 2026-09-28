@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, Plus, Search, SlidersHorizontal } from "lucide-react";
+import { ArrowLeft, Plus, Search, SlidersHorizontal, Users } from "lucide-react";
 
 export type ArmadaFilter = "semua" | "online" | "tracking" | "offline";
 
@@ -81,7 +81,7 @@ export default function Navbar({
 
   return (
     <div>
-      {/* gradient header */}
+      {/* Gradient Header */}
       <div className="bg-gradient-to-br from-[#1E88E5] to-[#29B6F6] px-5 pt-5 pb-[46px]">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3.5">
@@ -98,19 +98,31 @@ export default function Navbar({
             </div>
           </div>
 
-          {/* Tombol Tambah Armada di Pojok Kanan Atas Navbar */}
-          <Link
-            href="/tambaharmada"
-            aria-label="Tambah Armada"
-            className="w-9 h-9 rounded-full bg-white text-[#1E88E5] flex items-center justify-center shadow-md hover:bg-blue-50 active:scale-95 transition flex-shrink-0"
-          >
-            <Plus size={20} strokeWidth={2.5} />
-          </Link>
+          {/* Group Tombol Aksi Kanan Header */}
+          <div className="flex items-center gap-2">
+            
+            <Link
+              href="/manajemenpengemudi"
+              aria-label="manajemenpengemudi"
+              className="w-9 h-9 rounded-full bg-white/20 text-white flex items-center justify-center shadow-sm hover:bg-white/30 active:scale-95 transition flex-shrink-0"
+            >
+              <Users size={18} strokeWidth={2.2} />
+            </Link>
+
+            {/* Tombol Tambah Armada */}
+            <Link
+              href="/tambaharmada"
+              aria-label="Tambah Armada"
+              className="w-9 h-9 rounded-full bg-white text-[#1E88E5] flex items-center justify-center shadow-md hover:bg-blue-50 active:scale-95 transition flex-shrink-0"
+            >
+              <Plus size={20} strokeWidth={2.5} />
+            </Link>
+          </div>
         </div>
       </div>
 
       <div className="px-4 -mt-[30px]">
-        {/* search bar */}
+        {/* Search Bar */}
         <div className="flex items-center gap-2.5 bg-white rounded-[14px] px-3.5 py-3 shadow-[0_2px_10px_rgba(20,30,60,0.06)] mb-3">
           <Search size={17} className="text-[#a2a7b1] flex-shrink-0" />
           <input
@@ -122,13 +134,14 @@ export default function Navbar({
           />
           <button
             onClick={onFilterClick}
+            aria-label="Filter"
             className="w-[38px] h-[38px] rounded-xl bg-[#1E88E5] text-white flex items-center justify-center flex-shrink-0 active:scale-95 transition"
           >
             <SlidersHorizontal size={16} />
           </button>
         </div>
 
-        {/* filter chips */}
+        {/* Filter Chips */}
         <div className="flex gap-2 overflow-x-auto pb-0.5 [&::-webkit-scrollbar]:hidden">
           {filters.map((f) => (
             <FilterChip
