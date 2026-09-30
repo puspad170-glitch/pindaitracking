@@ -15,10 +15,10 @@ export default function BottomNavbar({
 }: BottomNavbarProps) {
   return (
     <div
-      className="sticky bottom-0 left-0 right-0 bg-[#F4F6F9]/95 backdrop-blur-sm border-t border-[#EEF0F3] px-4 pt-3"
+      className="fixed bottom-0 max-w-md w-full bg-white border-t border-slate-200 p-4 flex items-center z-30"
       style={{ paddingBottom: "max(0.9rem, env(safe-area-inset-bottom, 0px))" }}
     >
-      <div className="flex gap-2.5">
+      <div className="flex w-full gap-2.5">
         <button
           type="button"
           onClick={onBatal}

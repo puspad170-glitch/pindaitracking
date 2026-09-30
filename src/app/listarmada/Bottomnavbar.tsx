@@ -57,11 +57,11 @@ export default function Bottomnavbar() {
         </div>
 
         <Link
-          href="#"
+          href="/manajemenpengemudi"
           className="flex-1 flex flex-col items-center justify-center gap-0.5 py-2 text-gray-400 hover:text-gray-600 transition-colors font-medium"
         >
-          <MaterialIcon name="schedule" className="text-2xl" />
-          <span className="text-[10px]">Riwayat</span>
+          <MaterialIcon name="badge" className="text-2xl" />
+          <span className="text-[10px]">Pengemudi</span>
         </Link>
 
         <Link

@@ -104,7 +104,7 @@ export default function Navbar({
             <Link
               href="/manajemenpengemudi"
               aria-label="manajemenpengemudi"
-              className="w-9 h-9 rounded-full bg-white/20 text-white flex items-center justify-center shadow-sm hover:bg-white/30 active:scale-95 transition flex-shrink-0"
+              className="hidden w-9 h-9 rounded-full bg-white/20 text-white flex items-center justify-center shadow-sm hover:bg-white/30 active:scale-95 transition flex-shrink-0"
             >
               <Users size={18} strokeWidth={2.2} />
             </Link>
