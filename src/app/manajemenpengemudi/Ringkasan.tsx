@@ -1,7 +1,7 @@
 "use client";
 
-import { User, CheckCircle2, BedDouble, Route } from "lucide-react";
-import { ReactNode } from "react";
+import { useState, ReactNode } from "react";
+import { User, CheckCircle2, BedDouble, Route, ChevronUp } from "lucide-react";
 
 interface SumItemProps {
   icon: ReactNode;
@@ -36,6 +36,8 @@ interface RingkasanProps {
   aktif?: number;
   cutiIzin?: number;
   totalJarak?: number;
+  /** Kondisi awal: terbuka (default) atau tertutup */
+  defaultOpen?: boolean;
 }
 
 export default function Ringkasan({
@@ -43,24 +45,45 @@ export default function Ringkasan({
   aktif = 2,
   cutiIzin = 0,
   totalJarak = 1197.3,
+  defaultOpen = true,
 }: RingkasanProps) {
+  const [open, setOpen] = useState(defaultOpen);
+
   return (
     <div className="px-4 pt-3.5">
-      <div className="bg-white rounded-2xl p-3.5 shadow-[0_2px_10px_rgba(20,30,60,0.06)]">
-        <div className="text-[13px] font-extrabold text-[#1a1a2e] mb-[11px]">Ringkasan</div>
-        <div className="grid grid-cols-2 gap-2.5">
-          <SumItem icon={<User size={17} />} bg="#E3F2FD" color="#1E88E5" label="Total Pengemudi" value={String(totalPengemudi)} unit="Orang" />
-          <SumItem icon={<CheckCircle2 size={17} />} bg="#E6F7EE" color="#1B8A4A" label="Aktif" value={String(aktif)} unit="Orang" />
-          <SumItem icon={<BedDouble size={17} />} bg="#FFF3E0" color="#FB8C00" label="Cuti/Izin" value={String(cutiIzin)} unit="Orang" />
-          <SumItem
-            icon={<Route size={17} />}
-            bg="#E0F7FA"
-            color="#00ACC1"
-            label="Jarak Bulan Ini"
-            value={totalJarak.toLocaleString("id-ID", { minimumFractionDigits: 1, maximumFractionDigits: 1 })}
-            unit="km"
-          />
+      <div className="bg-white rounded-2xl shadow-[0_2px_10px_rgba(20,30,60,0.06)]">
+        {/* header + tombol buka/tutup di kanan atas */}
+        <div className="flex items-center justify-between px-3.5 py-3">
+          <div className="text-[13px] font-extrabold text-[#1a1a2e]">Ringkasan</div>
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-label={open ? "Tutup ringkasan" : "Buka ringkasan"}
+            className="w-7 h-7 rounded-full bg-[#EEF2F7] text-[#6b7280] flex items-center justify-center active:scale-95 transition"
+          >
+            <ChevronUp
+              size={16}
+              className={`transition-transform duration-200 ${open ? "" : "rotate-180"}`}
+            />
+          </button>
         </div>
+
+        {open && (
+          <div className="grid grid-cols-2 gap-2.5 px-3.5 pb-3.5">
+            <SumItem icon={<User size={17} />} bg="#E3F2FD" color="#1E88E5" label="Total Pengemudi" value={String(totalPengemudi)} unit="Orang" />
+            <SumItem icon={<CheckCircle2 size={17} />} bg="#E6F7EE" color="#1B8A4A" label="Aktif" value={String(aktif)} unit="Orang" />
+            <SumItem icon={<BedDouble size={17} />} bg="#FFF3E0" color="#FB8C00" label="Cuti/Izin" value={String(cutiIzin)} unit="Orang" />
+            <SumItem
+              icon={<Route size={17} />}
+              bg="#E0F7FA"
+              color="#00ACC1"
+              label="Jarak Bulan Ini"
+              value={totalJarak.toLocaleString("id-ID", { minimumFractionDigits: 1, maximumFractionDigits: 1 })}
+              unit="km"
+            />
+          </div>
+        )}
       </div>
     </div>
   );
