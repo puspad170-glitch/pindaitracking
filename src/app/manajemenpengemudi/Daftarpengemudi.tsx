@@ -12,10 +12,10 @@ import {
   Trash2,
   MoreHorizontal,
   ChevronUp,
-  Navigation,
-  Wrench,
   BedDouble,
   UserX,
+  CalendarOff,
+  PowerOff,
 } from "lucide-react";
 
 export type StatusPengemudi = "aktif" | "perjalanan" | "maintenance" | "cuti" | "nonaktif";
@@ -52,8 +52,8 @@ const GROUPS: {
   countPill: string;
 }[] = [
   { key: "aktif", title: "Pengemudi Aktif", icon: <Truck size={16} />, iconBg: "bg-[#1B8A4A]", countPill: "bg-[#E6F7EE] text-[#1B8A4A]" },
-  { key: "perjalanan", title: "Dalam Perjalanan", icon: <Navigation size={16} />, iconBg: "bg-[#FB8C00]", countPill: "bg-[#FFF3E0] text-[#E65100]" },
-  { key: "maintenance", title: "Maintenance & Siaga", icon: <Wrench size={16} />, iconBg: "bg-[#E53935]", countPill: "bg-[#FDECEA] text-[#C62828]" },
+  { key: "perjalanan", title: "Cuti", icon: <CalendarOff size={16} />, iconBg: "bg-[#FB8C00]", countPill: "bg-[#FFF3E0] text-[#E65100]" },
+  { key: "maintenance", title: "Tidak Aktif", icon: <PowerOff size={16} />, iconBg: "bg-[#E53935]", countPill: "bg-[#FDECEA] text-[#C62828]" },
   // grup tambahan: hanya tampil jika ada datanya
   { key: "cuti", title: "Cuti/Izin", icon: <BedDouble size={16} />, iconBg: "bg-[#F9A825]", countPill: "bg-[#FFF8E1] text-[#B26A00]" },
   { key: "nonaktif", title: "Nonaktif", icon: <UserX size={16} />, iconBg: "bg-[#A2A7B1]", countPill: "bg-[#F1F2F4] text-[#8a8f99]" },
@@ -149,13 +149,13 @@ function MenuAksi({
             <Eye size={15} /> Lihat Detail
           </Link>
           <Link
-            href={`${detailBasePath}/${p.id}/edit`}
+            href={`/editpengemudi?id=${p.id}`}
             role="menuitem"
             onClick={() => setOpen(false)}
             className={`${itemCls} text-[#374151]`}
-          >
-            <Pencil size={15} /> Edit
-          </Link>
+            >
+  <Pencil size={15} /> Edit
+</Link>
           <button
             type="button"
             role="menuitem"
