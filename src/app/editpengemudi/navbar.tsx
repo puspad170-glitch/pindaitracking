@@ -17,7 +17,7 @@ export default function Navbar({
   const router = useRouter();
 
   return (
-    <div className="bg-gradient-to-br from-[#1E88E5] to-[#29B6F6] px-5 pt-5 pb-11">
+    <div className="bg-gradient-to-br from-[#1E88E5] to-[#29B6F6] px-5 pt-5 pb-[52px]">
       <div className="flex items-center gap-3.5">
         <button
           onClick={() => (onBack ? onBack() : router.back())}

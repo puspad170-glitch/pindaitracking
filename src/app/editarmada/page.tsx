@@ -87,7 +87,8 @@ export default function EditArmadaPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F4F6F9] max-w-[440px] mx-auto flex flex-col relative">
+    <div className="flex justify-center min-h-screen bg-slate-100 antialiased font-sans">
+    <div className="relative w-full max-w-md bg-[#F4F6F9] min-h-screen shadow-sm pb-24 flex flex-col">
       {/* Toast sukses */}
       {showToast && (
         <div
@@ -137,6 +138,7 @@ export default function EditArmadaPage() {
         loading={loading}
         disabled={!isDirty}
       />
+    </div>
     </div>
   );
 }

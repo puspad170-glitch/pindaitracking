@@ -49,7 +49,7 @@ export default function ListArmadaPage() {
 
   return (
     <div className="flex justify-center min-h-screen bg-slate-100 antialiased font-sans">
-      <div className="relative w-full max-w-md bg-[#F4F6F9] min-h-screen shadow-sm pb-24 overflow-hidden">
+      <div className="relative w-full max-w-md bg-[#F4F6F9] min-h-screen shadow-sm pb-24 flex flex-col">
         <Navbar
           totalArmada={totalArmada}
           searchQuery={searchQuery}
@@ -58,7 +58,7 @@ export default function ListArmadaPage() {
           onFilterChange={setActiveFilter}
         />
 
-        <main className="px-4 space-y-4 pt-3.5">
+        <main className="flex-1 px-4 space-y-4 pt-3.5">
           <ArmadaAktif vehicles={filteredAktif} />
           <DalamPerjalanan vehicles={filteredPerjalanan} />
           <Maintenance vehicles={filteredMaintenance} />

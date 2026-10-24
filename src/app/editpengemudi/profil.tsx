@@ -47,7 +47,7 @@ export default function Profil({
   const pickFile = () => inputRef.current?.click();
 
   return (
-    <div className="relative z-10 -mt-[14px] bg-white rounded-2xl px-4 pt-5 pb-[18px] border border-[#F0F2F5] shadow-[0_2px_10px_rgba(20,30,60,0.06)] mb-3.5 flex flex-col items-center">
+    <div className="relative z-10 -mt-12 bg-white rounded-2xl px-4 pt-5 pb-[18px] border border-[#F0F2F5] shadow-[0_2px_10px_rgba(20,30,60,0.06)] mb-3.5 flex flex-col items-center">
       <input
         ref={inputRef}
         type="file"

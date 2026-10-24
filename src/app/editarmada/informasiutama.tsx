@@ -34,7 +34,7 @@ export default function InformasiUtama({
   errors = {},
 }: InformasiUtamaProps) {
   return (
-    <div className="bg-white rounded-2xl p-4 border border-[#F0F2F5] shadow-[0_2px_10px_rgba(20,30,60,0.06)] mb-3.5">
+    <div className="bg-white rounded-2xl p-4 border border-[#F0F2F5] shadow-[0_2px_10px_rgba(20,30,60,0.06)] mb-3.5 relative -mt-12 z-10">
       <div className="flex items-center gap-2 mb-3.5">
         <div className="w-[26px] h-[26px] rounded-lg bg-[#1E88E5] text-white flex items-center justify-center flex-shrink-0">
           <Truck size={13} />

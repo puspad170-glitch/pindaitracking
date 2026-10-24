@@ -100,13 +100,14 @@ export default function EditPengemudiPage() {
   };
 
   return (
-    /* max-w-[480px] disesuaikan agar ukurannya sama dengan Edit Armada */
-    <div className="min-h-screen bg-[#F4F6F9] max-w-[480px] mx-auto flex flex-col relative shadow-lg">
+    <div className="flex justify-center min-h-screen bg-slate-100 antialiased font-sans">
+    <div className="relative w-full max-w-md bg-[#F4F6F9] min-h-screen shadow-sm pb-24 flex flex-col">
+      
       {/* Toast sukses */}
       {showToast && (
         <div
           role="status"
-          className="fixed top-3.5 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-32px)] max-w-[448px] flex items-center gap-2.5 bg-[#1a1a2e] text-white rounded-2xl px-3.5 py-3 shadow-[0_10px_30px_rgba(0,0,0,0.3)]"
+          className="fixed top-3.5 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-32px)] max-w-md flex items-center gap-2.5 bg-[#1a1a2e] text-white rounded-2xl px-3.5 py-3 shadow-[0_10px_30px_rgba(0,0,0,0.3)]"
         >
           <span className="w-7 h-7 rounded-full bg-[#1B8A4A] flex items-center justify-center flex-shrink-0">
             <Check size={14} strokeWidth={3} />
@@ -116,6 +117,7 @@ export default function EditPengemudiPage() {
             <div className="text-[11px] text-[#c9cdd6]">Data {formData.nama} telah diperbarui</div>
           </div>
         </div>
+      
       )}
 
       {/* Header / Top Navbar */}
@@ -160,5 +162,6 @@ export default function EditPengemudiPage() {
         disabled={!isDirty}
       />
     </div>
+  </div>
   );
 }
