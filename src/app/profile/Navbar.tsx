@@ -17,7 +17,7 @@ interface NavbarProps {
 export default function Navbar({
   pageTitle = "Profil Saya",
   subtitle = "Informasi akun pengguna",
-  name = "Rania Dewi",
+  name = "Puspa Tirani",
   role = "Pengguna Sistem · Staff Operasional",
   avatarUrl,
   isVerified = true,

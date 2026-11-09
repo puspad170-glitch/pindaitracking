@@ -31,7 +31,7 @@ interface InformasiPribadiProps {
 }
 
 export default function InformasiPribadi({
-  namaLengkap = "Rania Dewi",
+  namaLengkap = "Puspa Tirani",
   email = "rani14@gmail.com",
   noTelepon = "0829 1383 223",
   onUbah,
